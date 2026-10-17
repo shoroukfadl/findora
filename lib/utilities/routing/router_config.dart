@@ -1,0 +1,260 @@
+import 'package:findora/featured/boarding/presentation/pages/boarding_screen.dart';
+import 'package:findora/featured/login/presentation/pages/login_page.dart';
+import 'package:findora/utilities/constants/enums.dart';
+import 'package:findora/utilities/dep/git_it.dart';
+import 'package:findora/utilities/routing/routing_stream.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:universal_html/html.dart' as html;
+
+BuildContext? get CURRENT_CONTEXT =>
+    GoRouterConfig.router.routerDelegate.navigatorKey.currentContext;
+
+class GoRouterConfig {
+  static String getServerUrl() {
+    String completeUrl = html.window.location.href;
+    Uri uri = Uri.parse(completeUrl);
+    String serverUrl =
+        '${uri.scheme}://${uri.host}${uri.hasPort ? ":${uri.port}" : ""}';
+    print("com :$completeUrl");
+    return serverUrl;
+  }
+
+  static void popUntilPath(String pattern) {
+    final RouteMatch lastMatch =
+        _router.routerDelegate.currentConfiguration.last;
+    final RouteMatchList matchList = lastMatch is ImperativeRouteMatch
+        ? lastMatch.matches
+        : _router.routerDelegate.currentConfiguration;
+    final String location = matchList.uri.toString();
+    final router = GoRouter.of(CURRENT_CONTEXT!);
+
+    while (location.contains(pattern)) {
+      if (!router.canPop()) return;
+      router.pop();
+    }
+  }
+
+  static Future popAllFromBrowser() async {
+    while (
+        html.window.location.href.replaceAll(getServerUrl(), "").length > 2) {
+      html.window.history.back();
+      await Future.delayed(Duration.zero);
+    }
+  }
+
+  static GoRouter get router => _router;
+  static final GoRouter _router = GoRouter(
+    refreshListenable: GoRouterRefreshStream(
+      sl<FirebaseAuth>().authStateChanges(),
+    ),
+    redirect: (context, state) {
+      // final isLoggedIn = FirebaseAuth.instance.currentUser != null;
+      // final location = state.matchedLocation;
+      // final isAuthPage = location == "/${SendCodeScreen.routeName}" ||
+      //     location == "/${BoardingScreen.routeName}" ||
+      //     location == "/${CodeScreen.routeName}";
+      //
+      // if (isLoggedIn && isAuthPage) return '/${HomeScreen.routeName}';
+      //
+      // return null;
+    },
+    routes: <RouteBase>[
+      GoRoute(
+        name: BoardingScreen.routeName,
+        path: BoardingScreen.routeName,
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child: const BoardingScreen(),
+          );
+        },
+      ),
+      GoRoute(
+          path: "/${LoginPage.routeName}",
+          name: LoginPage.routeName,
+          pageBuilder: (_, GoRouterState state) {
+            return getCustomTransitionPage(
+              state: state,
+              child: const LoginPage(),
+            );
+          },
+          routes: [
+            // GoRoute(
+            //     path: CodeScreen.routeName,
+            //     name: CodeScreen.routeName,
+            //     pageBuilder: (_, GoRouterState state) {
+            //       return getCustomTransitionPage(
+            //           state: state,
+            //           child: BlocProvider<VerifyCodeCubit>(
+            //             create: (c) => sl<VerifyCodeCubit>(),
+            //             child: CodeScreen(
+            //               phone: state.uri.queryParameters['phone'] ?? "",
+            //               verificationId:
+            //                   state.uri.queryParameters['verificationId'] ?? "",
+            //             ),
+            //           ));
+            //     },
+            //     routes: [
+            //       // GoRoute(
+            //       //   path: ProfileSetupScreen.routeName,
+            //       //   name: ProfileSetupScreen.routeName,
+            //       //   pageBuilder: (_, GoRouterState state) {
+            //       //     return getCustomTransitionPage(
+            //       //       state: state,
+            //       //       child: const ProfileSetupScreen(),
+            //       //     );
+            //       //   },
+            //       // ),
+            //     ]),
+          ]),
+      // ShellRoute(
+      //     builder: (context, state, child) {
+      //       return MainLayoutWidget(
+      //         currentPath: state.fullPath,
+      //         child: child,
+      //       );
+      //     },
+      //     routes: [
+      //       GoRoute(
+      //           name: HomeScreen.routeName,
+      //           path: "/${HomeScreen.routeName}",
+      //           pageBuilder: (_, GoRouterState state) {
+      //             return getCustomTransitionPage(
+      //               state: state,
+      //               child: const HomeScreen(),
+      //             );
+      //           },
+      //           routes: [
+      //             GoRoute(
+      //                 name: ChatScreen.routeName,
+      //                 path: ChatScreen.routeName,
+      //                 pageBuilder: (_, GoRouterState state) {
+      //                   return getCustomTransitionPage(
+      //                     state: state,
+      //                     child: const ChatScreen(),
+      //                   );
+      //                 },
+      //                 routes: [
+      //                   GoRoute(
+      //                     name: ChatProfileScreen.routeName,
+      //                     path: ChatProfileScreen.routeName,
+      //                     pageBuilder: (_, GoRouterState state) {
+      //                       final extra = state.extra as Map<String, dynamic>?;
+      //                       return getCustomTransitionPage(
+      //                         state: state,
+      //                         child: ChatProfileScreen(
+      //                           chatType: extra?['chatType'] ?? ChatType.group,
+      //                           name: extra?['name'],
+      //                           phoneNumber: extra?['phoneNumber'],
+      //                           about: extra?['about'],
+      //                           language: extra?['language'],
+      //                           mediaCount: extra?['mediaCount'],
+      //                           isMuted: extra?['isMuted'],
+      //                           members: extra?['members'],
+      //                         ),
+      //                       );
+      //                     },
+      //                   ),
+      //                   GoRoute(
+      //                     name: AiSummaryScreen.routeName,
+      //                     path: AiSummaryScreen.routeName,
+      //                     pageBuilder: (_, GoRouterState state) {
+      //                       return getCustomTransitionPage(
+      //                         state: state,
+      //                         child: const AiSummaryScreen(),
+      //                       );
+      //                     },
+      //                   )
+      //                 ]),
+      //           ]),
+      //       GoRoute(
+      //         name: GroupsScreen.routeName,
+      //         path: "/${GroupsScreen.routeName}",
+      //         pageBuilder: (_, GoRouterState state) {
+      //           return getCustomTransitionPage(
+      //             state: state,
+      //             child: const GroupsScreen(),
+      //           );
+      //         },
+      //       ),
+      //       GoRoute(
+      //         name: NotificationScreen.routeName,
+      //         path: "/${NotificationScreen.routeName}",
+      //         pageBuilder: (_, GoRouterState state) {
+      //           return getCustomTransitionPage(
+      //             state: state,
+      //             child: const NotificationScreen(),
+      //           );
+      //         },
+      //       ),
+      //       GoRoute(
+      //           name: SettingsScreen.routeName,
+      //           path: "/${SettingsScreen.routeName}",
+      //           pageBuilder: (_, GoRouterState state) {
+      //             return getCustomTransitionPage(
+      //               state: state,
+      //               child: BlocProvider<SettingsCubit>(
+      //                   create: (v) => sl<SettingsCubit>(),
+      //                   child: const SettingsScreen()),
+      //             );
+      //           },
+      //           routes: [
+      //             GoRoute(
+      //               name: ProfileScreen.routeName,
+      //               path: ProfileScreen.routeName,
+      //               pageBuilder: (_, GoRouterState state) {
+      //                 return getCustomTransitionPage(
+      //                   state: state,
+      //                   child: const ProfileScreen(),
+      //                 );
+      //               },
+      //             ),
+      //           ]),
+      //       GoRoute(
+      //         name: CreateChatScreen.routeName,
+      //         path: "/${CreateChatScreen.routeName}",
+      //         pageBuilder: (_, GoRouterState state) {
+      //           return getCustomTransitionPage(
+      //             state: state,
+      //             child: const CreateChatScreen(),
+      //           );
+      //         },
+      //       ),
+      //       GoRoute(
+      //         name: CallsScreen.routeName,
+      //         path: "/${CallsScreen.routeName}",
+      //         pageBuilder: (_, GoRouterState state) {
+      //           return getCustomTransitionPage(
+      //             state: state,
+      //             child: const CallsScreen(),
+      //           );
+      //         },
+      //       ),
+      //     ]),
+    ],
+  );
+
+  static CustomTransitionPage getCustomTransitionPage(
+      {required GoRouterState state, required Widget child}) {
+    return CustomTransitionPage(
+      key: state.pageKey,
+      child: child,
+      transitionDuration: const Duration(milliseconds: 0),
+      reverseTransitionDuration: Duration.zero,
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        return ScaleTransition(
+          scale: CurveTween(curve: Curves.easeInOutCirc).animate(animation),
+          child: child,
+        );
+      },
+    );
+  }
+}
+
+List<String> preventedRoutes = [
+  ScreenRoutes.chat.name,
+  ScreenRoutes.aiSummary.name,
+  ScreenRoutes.profileChat.name,
+];

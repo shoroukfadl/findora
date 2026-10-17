@@ -1,0 +1,196 @@
+import 'package:flutter/material.dart';
+
+class AppColors extends ThemeExtension<AppColors> {
+  final Color background;
+  final Color card;
+  final Color surface;
+  final Color accent;
+  final Color onAccent;
+  final Color accentSoft;
+  final Color accentText;
+  final Color secondary;
+  final Color onSecondary;
+  final Color secondarySoft;
+  final Color success;
+  final Color warning;
+  final Color danger;
+  final Color text1;
+  final Color text2;
+  final Color text3;
+  final Color border;
+  final Color divider;
+  final Color lostBg;
+  final Color lostText;
+  final Color foundBg;
+  final Color foundText;
+  final Color scrim;
+  final Color shadow;
+
+  const AppColors({
+    required this.background,
+    required this.card,
+    required this.surface,
+    required this.accent,
+    required this.onAccent,
+    required this.accentSoft,
+    required this.accentText,
+    required this.secondary,
+    required this.onSecondary,
+    required this.secondarySoft,
+    required this.success,
+    required this.warning,
+    required this.danger,
+    required this.text1,
+    required this.text2,
+    required this.text3,
+    required this.border,
+    required this.divider,
+    required this.lostBg,
+    required this.lostText,
+    required this.foundBg,
+    required this.foundText,
+    required this.scrim,
+    required this.shadow,
+  });
+
+  // Findora: Navy (accent) + soft Coral (secondary)
+  static const light = AppColors(
+    background: Color(0xFFF4F6FB),
+    card: Color(0xFFFFFFFF),
+    surface: Color(0xFFDDE3F2),
+    accent: Color(0xFF1E3A8A),
+    onAccent: Color(0xFFFFFFFF),
+    accentSoft: Color(0xFFE6EAF4),
+    accentText: Color(0xFF1E3A8A),
+    secondary: Color(0xFFE5826F),
+    onSecondary: Color(0xFF1A0F0C),
+    secondarySoft: Color(0xFFFFEDE9),
+    success: Color(0xFF1F9D6E),
+    warning: Color(0xFFF5A524),
+    danger: Color(0xFFE5484D),
+    text1: Color(0xFF0F172A),
+    text2: Color(0xFF5B6478),
+    text3: Color(0xFF8A93A8),
+    border: Color(0xFFC8D0E0),
+    divider: Color(0xFFE2E7F1),
+    lostBg: Color(0xFFFDE8E2),
+    lostText: Color(0xFF9A3412),
+    foundBg: Color(0xFFDDF3EA),
+    foundText: Color(0xFF0B5F44),
+    scrim: Color(0x8C0F172A),
+    shadow: Color(0x2E0F172A),
+  );
+
+  static const dark = AppColors(
+    background: Color(0xFF0B1220),
+    card: Color(0xFF141C2F),
+    surface: Color(0xFF1D2740),
+    accent: Color(0xFF3552C4),
+    onAccent: Color(0xFFFFFFFF),
+    accentSoft: Color(0xFF1D2740),
+    accentText: Color(0xFF9DB4FF),
+    secondary: Color(0xFFE5826F),
+    onSecondary: Color(0xFF1A0F0C),
+    secondarySoft: Color(0xFF2E1B1A),
+    success: Color(0xFF34C08A),
+    warning: Color(0xFFFFC247),
+    danger: Color(0xFFF2666B),
+    text1: Color(0xFFE8ECF5),
+    text2: Color(0xFF98A2B8),
+    text3: Color(0xFF6B7691),
+    border: Color(0xFF2A3550),
+    divider: Color(0xFF232D45),
+    lostBg: Color(0xFF3A1E1A),
+    lostText: Color(0xFFFFB4A3),
+    foundBg: Color(0xFF123227),
+    foundText: Color(0xFF7FD9B0),
+    scrim: Color(0x8C000000),
+    shadow: Color(0x66000000),
+  );
+
+  @override
+  AppColors copyWith({
+    Color? background,
+    Color? card,
+    Color? surface,
+    Color? accent,
+    Color? onAccent,
+    Color? accentSoft,
+    Color? accentText,
+    Color? secondary,
+    Color? onSecondary,
+    Color? secondarySoft,
+    Color? success,
+    Color? warning,
+    Color? danger,
+    Color? text1,
+    Color? text2,
+    Color? text3,
+    Color? border,
+    Color? divider,
+    Color? lostBg,
+    Color? lostText,
+    Color? foundBg,
+    Color? foundText,
+    Color? scrim,
+    Color? shadow,
+  }) {
+    return AppColors(
+      background: background ?? this.background,
+      card: card ?? this.card,
+      surface: surface ?? this.surface,
+      accent: accent ?? this.accent,
+      onAccent: onAccent ?? this.onAccent,
+      accentSoft: accentSoft ?? this.accentSoft,
+      accentText: accentText ?? this.accentText,
+      secondary: secondary ?? this.secondary,
+      onSecondary: onSecondary ?? this.onSecondary,
+      secondarySoft: secondarySoft ?? this.secondarySoft,
+      success: success ?? this.success,
+      warning: warning ?? this.warning,
+      danger: danger ?? this.danger,
+      text1: text1 ?? this.text1,
+      text2: text2 ?? this.text2,
+      text3: text3 ?? this.text3,
+      border: border ?? this.border,
+      divider: divider ?? this.divider,
+      lostBg: lostBg ?? this.lostBg,
+      lostText: lostText ?? this.lostText,
+      foundBg: foundBg ?? this.foundBg,
+      foundText: foundText ?? this.foundText,
+      scrim: scrim ?? this.scrim,
+      shadow: shadow ?? this.shadow,
+    );
+  }
+
+  @override
+  AppColors lerp(ThemeExtension<AppColors>? other, double t) {
+    if (other is! AppColors) return this;
+    return AppColors(
+      background: Color.lerp(background, other.background, t)!,
+      card: Color.lerp(card, other.card, t)!,
+      surface: Color.lerp(surface, other.surface, t)!,
+      accent: Color.lerp(accent, other.accent, t)!,
+      onAccent: Color.lerp(onAccent, other.onAccent, t)!,
+      accentSoft: Color.lerp(accentSoft, other.accentSoft, t)!,
+      accentText: Color.lerp(accentText, other.accentText, t)!,
+      secondary: Color.lerp(secondary, other.secondary, t)!,
+      onSecondary: Color.lerp(onSecondary, other.onSecondary, t)!,
+      secondarySoft: Color.lerp(secondarySoft, other.secondarySoft, t)!,
+      success: Color.lerp(success, other.success, t)!,
+      warning: Color.lerp(warning, other.warning, t)!,
+      danger: Color.lerp(danger, other.danger, t)!,
+      text1: Color.lerp(text1, other.text1, t)!,
+      text2: Color.lerp(text2, other.text2, t)!,
+      text3: Color.lerp(text3, other.text3, t)!,
+      border: Color.lerp(border, other.border, t)!,
+      divider: Color.lerp(divider, other.divider, t)!,
+      lostBg: Color.lerp(lostBg, other.lostBg, t)!,
+      lostText: Color.lerp(lostText, other.lostText, t)!,
+      foundBg: Color.lerp(foundBg, other.foundBg, t)!,
+      foundText: Color.lerp(foundText, other.foundText, t)!,
+      scrim: Color.lerp(scrim, other.scrim, t)!,
+      shadow: Color.lerp(shadow, other.shadow, t)!,
+    );
+  }
+}

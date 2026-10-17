@@ -1,0 +1,24 @@
+flutter_native_splash:
+  color: "#1E3A8A"
+  color_dark: "#3552C4"
+  image:                assets/images/logo.png
+  image_dark:           assets/images/logo.png
+  image_web:            assets/images/logo.png
+  image_dark_web:       assets/images/logo.png
+  fullscreen: true
+
+  #! ANDROID 12+ configuration:
+  android_12:
+    # background color
+    color: "#1E3A8A"
+    color_dark: "#3552C4"
+
+    image: assets/images/logo.png
+    image_dark: assets/images/logo.png
+    icon_background_color: "#FFFFFF"
+    icon_background_color_dark: "#000000"
+
+    # branding:
+    # The branding image dimensions must be 800x320 px.
+    #branding:      assets/dart.png
+    #branding_dark: assets/dart_dark.png

@@ -1,0 +1,162 @@
+import 'dart:async';
+import 'dart:ui';
+
+import 'package:findora/Core/Theme/theme_colors.dart';
+import 'package:findora/core/Theme/theme_cubit.dart';
+import 'package:findora/core/Theme/theme_state.dart';
+import 'package:findora/core/error/errorWidget/custom_error_widget.dart';
+import 'package:findora/core/language/locale_cubit.dart';
+import 'package:findora/core/language/locales.dart';
+import 'package:findora/core/network/network.dart';
+import 'package:findora/firebase_options.dart';
+import 'package:findora/utilities/dep/git_it.dart';
+import 'package:findora/utilities/helper/observer.dart';
+import 'package:findora/utilities/routing/router_config.dart';
+import 'package:findora/utilities/uiHelper/app_themes.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart' as fl;
+import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:responsive_framework/responsive_framework.dart';
+import 'package:url_strategy/url_strategy.dart';
+
+Future<void> main() async {
+  runZonedGuarded(() async {
+    WidgetsFlutterBinding.ensureInitialized();
+    ConnectivityService.instance.initialize();
+    AppBlocObserver observer = AppBlocObserver();
+    Bloc.observer = observer;
+    setPathUrlStrategy();
+    await Future.wait([
+      Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform),
+      GitIt.initGitIt()
+    ]);
+
+    FlutterError.onError = (FlutterErrorDetails details) {
+      reportError(
+        details.exception,
+        details.stack,
+        context: 'FlutterError',
+      );
+
+      FlutterError.presentError(details);
+    };
+
+    ErrorWidget.builder = (FlutterErrorDetails details) {
+      return CustomErrorWidget(
+        errorDetails: details,
+      );
+    };
+
+    PlatformDispatcher.instance.onError = (error, stack) {
+      reportError(
+        error,
+        stack,
+        context: 'PlatformDispatcher',
+      );
+
+      return true;
+    };
+
+    runApp(
+      MultiBlocProvider(
+        providers: [
+          BlocProvider<ThemeCubit>(
+            create: (_) => ThemeCubit()..getCurrentTheme(),
+          ),
+          BlocProvider<LocaleCubit>(create: (_) => sl<LocaleCubit>()),
+        ],
+        child: const EntryPoint(),
+      ),
+    );
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      FlutterNativeSplash.remove();
+    });
+  }, (error, stack) {
+    reportError(
+      error,
+      stack,
+      context: 'runZonedGuarded',
+    );
+  });
+}
+
+class EntryPoint extends StatefulWidget {
+  const EntryPoint({super.key});
+
+  @override
+  State<EntryPoint> createState() => _EntryPointState();
+}
+
+class _EntryPointState extends State<EntryPoint> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<ThemeCubit, ThemeState>(
+      builder: (context, themeState) {
+        final bool isDark = themeState.theme == ThemeMode.dark;
+        final currentTheme = AppThemes.createTheme(
+          isArabic: false,
+          isDark: isDark,
+        ).copyWith(
+          extensions: <ThemeExtension<dynamic>>[
+            isDark ? AppColors.dark : AppColors.light,
+          ],
+        );
+
+        return BlocBuilder<LocaleCubit, Locale>(
+            builder: (context, locale) => ResponsiveBreakpoints.builder(
+                  breakpoints: [
+                    const Breakpoint(start: 0, end: 599, name: MOBILE),
+                    const Breakpoint(start: 600, end: 1439, name: TABLET),
+                    const Breakpoint(
+                        start: 1440, end: double.infinity, name: DESKTOP),
+                  ],
+                  child: MaterialApp.router(
+                    locale: locale,
+                    supportedLocales: AppLocalizations.supportedLocales,
+                    localizationsDelegates: [
+                      AppLocalizations.delegate,
+                      fl.GlobalMaterialLocalizations.delegate,
+                      fl.GlobalWidgetsLocalizations.delegate,
+                      fl.GlobalCupertinoLocalizations.delegate,
+                      DefaultCupertinoLocalizations.delegate,
+                    ],
+                    builder: (context, child) {
+                      return MediaQuery(
+                        data: MediaQuery.of(context).copyWith(
+                          textScaler: TextScaler.noScaling,
+                          boldText: false,
+                        ),
+                        child: child!,
+                      );
+                    },
+                    scrollBehavior: MyCustomScrollBehavior(),
+                    routerConfig: GoRouterConfig.router,
+                    theme: currentTheme,
+                    themeAnimationCurve: Curves.easeInOut,
+                    themeAnimationDuration: Duration(milliseconds: 300),
+                    themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
+                    debugShowCheckedModeBanner: false,
+                  ),
+                ));
+      },
+    );
+  }
+}
+
+class MyCustomScrollBehavior extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+        PointerDeviceKind.trackpad
+      };
+}
