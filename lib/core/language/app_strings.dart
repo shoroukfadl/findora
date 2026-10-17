@@ -127,4 +127,6 @@ extension AppStrings on AppLocalizations {
   String get statesErrorTitle => tr('statesErrorTitle');
   String get statesErrorBody => tr('statesErrorBody');
   String get statesOffline => tr('statesOffline');
+  String get authHaveAccount => tr('authHaveAccount');
+  String get fullName => tr('fullName');
 }

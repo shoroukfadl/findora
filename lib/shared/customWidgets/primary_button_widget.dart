@@ -1,4 +1,3 @@
-import 'package:findora/Utilities/Constants/constants.dart';
 import 'package:findora/shared/customWidgets/custom_button_widget.dart';
 import 'package:findora/shared/helper/hover_widget.dart';
 import 'package:findora/utilities/extentions/extensions.dart';
@@ -26,7 +25,6 @@ class PrimaryButtonWidget extends StatelessWidget {
               onPressed: onTap,
               isLoading: loading,
               btnColor: hover ? colors.accentSoft : colors.accent,
-              borderRadiusValue: cardRadius,
               titleColor: Colors.white,
             ));
   }

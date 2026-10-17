@@ -117,5 +117,7 @@
   "statesCreateReport": "إنشاء بلاغ",
   "statesErrorTitle": "حدث خطأ ما",
   "statesErrorBody": "تعذّر تحميل البلاغات. حاول مرة أخرى.",
-  "statesOffline": "أنت غير متصل. ستُرسل الرسائل لاحقًا."
+  "statesOffline": "أنت غير متصل. ستُرسل الرسائل لاحقًا.",
+  "authHaveAccount": "هل لديك حساب ؟",
+  "fullName": "الاسم بالكامل"
 }

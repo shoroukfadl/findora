@@ -1,8 +1,10 @@
 import 'package:findora/Core/Language/app_styles.dart';
 import 'package:findora/core/language/app_strings.dart';
 import 'package:findora/core/language/locales.dart';
+import 'package:findora/featured/register/presentation/pages/register_page.dart';
 import 'package:findora/utilities/extentions/extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CreateAccountLinkWidget extends StatelessWidget {
   const CreateAccountLinkWidget({super.key});
@@ -21,7 +23,7 @@ class CreateAccountLinkWidget extends StatelessWidget {
         ),
         GestureDetector(
           onTap: () {
-            // Handle create account navigation
+            context.goNamed(RegisterPage.routeName);
           },
           child: Text(
             t.authCreateAccount,

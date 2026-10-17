@@ -1,5 +1,6 @@
 import 'package:findora/featured/boarding/presentation/pages/boarding_screen.dart';
 import 'package:findora/featured/login/presentation/pages/login_page.dart';
+import 'package:findora/featured/register/presentation/pages/register_page.dart';
 import 'package:findora/utilities/constants/enums.dart';
 import 'package:findora/utilities/dep/git_it.dart';
 import 'package:findora/utilities/routing/routing_stream.dart';
@@ -62,12 +63,23 @@ class GoRouterConfig {
     },
     routes: <RouteBase>[
       GoRoute(
-        name: BoardingScreen.routeName,
-        path: BoardingScreen.routeName,
+        name: BoardingPage.routeName,
+        path: BoardingPage.routeName,
         pageBuilder: (_, GoRouterState state) {
           return getCustomTransitionPage(
             state: state,
-            child: const BoardingScreen(),
+            child: const BoardingPage(),
+          );
+        },
+      ),
+
+      GoRoute(
+        path: "/${RegisterPage.routeName}",
+        name: RegisterPage.routeName,
+        pageBuilder: (_, GoRouterState state) {
+          return getCustomTransitionPage(
+            state: state,
+            child: const RegisterPage(),
           );
         },
       ),

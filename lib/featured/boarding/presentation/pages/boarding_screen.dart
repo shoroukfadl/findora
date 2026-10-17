@@ -11,9 +11,9 @@ import 'package:findora/utilities/extentions/extensions.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class BoardingScreen extends StatelessWidget {
+class BoardingPage extends StatelessWidget {
   static String routeName = '/';
-  const BoardingScreen({super.key});
+  const BoardingPage({super.key});
 
   @override
   Widget build(BuildContext context) {

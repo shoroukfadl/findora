@@ -118,5 +118,8 @@
   "statesCreateReport": "Create report",
   "statesErrorTitle": "Something went wrong",
   "statesErrorBody": "We couldn't load reports. Try again.",
-  "statesOffline": "You're offline. Messages will send later."
+  "statesOffline": "You're offline. Messages will send later.",
+  "authHaveAccount": "Already have an account?",
+  "fullName": "Full Name"
+
 }
