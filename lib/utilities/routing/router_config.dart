@@ -1,6 +1,7 @@
 import 'package:findora/featured/boarding/presentation/pages/boarding_screen.dart';
 import 'package:findora/featured/home/presentation/pages/home_page.dart';
 import 'package:findora/featured/login/presentation/pages/login_page.dart';
+import 'package:findora/featured/profile/presentation/pages/profile_page.dart';
 import 'package:findora/featured/register/presentation/pages/register_page.dart';
 import 'package:findora/shared/mainLayout/main_layout_widget.dart';
 import 'package:findora/utilities/constants/enums.dart';
@@ -137,6 +138,16 @@ class GoRouterConfig {
                   return getCustomTransitionPage(
                     state: state,
                     child: const HomePage(),
+                  );
+                },
+                routes: []),
+            GoRoute(
+                name: ProfilePage.routeName,
+                path: "/${ProfilePage.routeName}",
+                pageBuilder: (_, GoRouterState state) {
+                  return getCustomTransitionPage(
+                    state: state,
+                    child: const ProfilePage(),
                   );
                 },
                 routes: []),

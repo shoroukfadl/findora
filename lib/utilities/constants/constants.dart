@@ -1,7 +1,7 @@
 const mobileHozPadding = 20.0;
 const mobileVetPadding = 40.0;
 
-const cardRadius = 24.0;
+const cardRadius = 16.0;
 const fieldsRadius = 14.0;
 const pillsRadius = 999.0;
 

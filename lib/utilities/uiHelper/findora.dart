@@ -13,11 +13,16 @@ class Findora {
 
   static const String _fontFamily = 'findora';
 
+  static const IconData logout = IconData(0xf017, fontFamily: _fontFamily);
+  static const IconData settings = IconData(0xf016, fontFamily: _fontFamily);
+  static const IconData saved = IconData(0xf015, fontFamily: _fontFamily);
+  static const IconData claims = IconData(0xf014, fontFamily: _fontFamily);
+  static const IconData report = IconData(0xf013, fontFamily: _fontFamily);
   static const IconData findoraBold = IconData(0xf012, fontFamily: _fontFamily);
   static const IconData mapBold = IconData(0xf011, fontFamily: _fontFamily);
   static const IconData profileBold = IconData(0xf010, fontFamily: _fontFamily);
   static const IconData chatsBold = IconData(0xf00f, fontFamily: _fontFamily);
-  static const IconData settings = IconData(0xf00e, fontFamily: _fontFamily);
+  static const IconData profile = IconData(0xf00e, fontFamily: _fontFamily);
   static const IconData chats = IconData(0xf00d, fontFamily: _fontFamily);
   static const IconData map = IconData(0xf00b, fontFamily: _fontFamily);
   static const IconData findora = IconData(0xf00c, fontFamily: _fontFamily);

@@ -1,6 +1,7 @@
 import 'package:findora/core/language/app_strings.dart';
 import 'package:findora/core/language/locales.dart';
 import 'package:findora/featured/home/presentation/pages/home_page.dart';
+import 'package:findora/featured/profile/presentation/pages/profile_page.dart';
 import 'package:findora/shared/mainLayout/bottomNav/nav_item.dart';
 import 'package:findora/shared/mainLayout/bottomNav/nav_model.dart';
 import 'package:findora/utilities/constants/constants.dart';
@@ -38,8 +39,8 @@ class BottomNavWidget extends StatelessWidget {
         NavModel(
           label: context.t.navProfile,
           selectedIcon: Findora.profileBold,
-          icon: Findora.settings,
-          route: "",
+          icon: Findora.profile,
+          route: ProfilePage.routeName,
         ),
       ];
   @override
