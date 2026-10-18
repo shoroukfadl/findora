@@ -1,5 +1,6 @@
 import 'package:findora/Core/Language/app_styles.dart';
 import 'package:findora/core/language/locales.dart';
+import 'package:findora/shared/mainLayout/bottomNav/bottom_nav_widget.dart';
 import 'package:findora/utilities/extentions/extensions.dart';
 import 'package:findora/utilities/routing/router_config.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +34,7 @@ class _MainLayoutWidgetState extends State<MainLayoutWidget> {
     final hideBottomNav = preventedRoutes.contains(currentRoute);
     return Scaffold(
       key: GlobalKeys.scaffoldKey,
-      backgroundColor: colors.card,
+      backgroundColor: colors.background,
       appBar: hideBottomNav
           ? null
           : AppBar(
@@ -44,11 +45,9 @@ class _MainLayoutWidgetState extends State<MainLayoutWidget> {
                 style: AppTextStyles.h18(color: colors.text1),
               ),
             ),
-      // bottomNavigationBar: hideBottomNav
-      //     ? null
-      //     : BottomNavBarItems(
-      //         currentPath: widget.currentPath,
-      //       ),
+      bottomNavigationBar: BottomNavWidget(
+        path: widget.currentPath ?? "",
+      ),
       body: AnimatedScale(
         scale: scale,
         duration: const Duration(milliseconds: 400),

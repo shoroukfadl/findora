@@ -13,6 +13,9 @@ class Findora {
 
   static const String _fontFamily = 'findora';
 
+  static const IconData settings = IconData(0xf00e, fontFamily: _fontFamily);
+  static const IconData chats = IconData(0xf00d, fontFamily: _fontFamily);
+  static const IconData map = IconData(0xf00b, fontFamily: _fontFamily);
   static const IconData findora = IconData(0xf00c, fontFamily: _fontFamily);
   static const IconData send = IconData(0xf00a, fontFamily: _fontFamily);
   static const IconData returned = IconData(0xf009, fontFamily: _fontFamily);

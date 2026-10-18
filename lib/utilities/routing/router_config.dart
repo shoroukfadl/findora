@@ -1,6 +1,8 @@
 import 'package:findora/featured/boarding/presentation/pages/boarding_screen.dart';
+import 'package:findora/featured/home/presentation/pages/home_page.dart';
 import 'package:findora/featured/login/presentation/pages/login_page.dart';
 import 'package:findora/featured/register/presentation/pages/register_page.dart';
+import 'package:findora/shared/mainLayout/main_layout_widget.dart';
 import 'package:findora/utilities/constants/enums.dart';
 import 'package:findora/utilities/dep/git_it.dart';
 import 'package:findora/utilities/routing/routing_stream.dart';
@@ -72,7 +74,6 @@ class GoRouterConfig {
           );
         },
       ),
-
       GoRoute(
         path: "/${RegisterPage.routeName}",
         name: RegisterPage.routeName,
@@ -121,130 +122,25 @@ class GoRouterConfig {
             //       // ),
             //     ]),
           ]),
-      // ShellRoute(
-      //     builder: (context, state, child) {
-      //       return MainLayoutWidget(
-      //         currentPath: state.fullPath,
-      //         child: child,
-      //       );
-      //     },
-      //     routes: [
-      //       GoRoute(
-      //           name: HomeScreen.routeName,
-      //           path: "/${HomeScreen.routeName}",
-      //           pageBuilder: (_, GoRouterState state) {
-      //             return getCustomTransitionPage(
-      //               state: state,
-      //               child: const HomeScreen(),
-      //             );
-      //           },
-      //           routes: [
-      //             GoRoute(
-      //                 name: ChatScreen.routeName,
-      //                 path: ChatScreen.routeName,
-      //                 pageBuilder: (_, GoRouterState state) {
-      //                   return getCustomTransitionPage(
-      //                     state: state,
-      //                     child: const ChatScreen(),
-      //                   );
-      //                 },
-      //                 routes: [
-      //                   GoRoute(
-      //                     name: ChatProfileScreen.routeName,
-      //                     path: ChatProfileScreen.routeName,
-      //                     pageBuilder: (_, GoRouterState state) {
-      //                       final extra = state.extra as Map<String, dynamic>?;
-      //                       return getCustomTransitionPage(
-      //                         state: state,
-      //                         child: ChatProfileScreen(
-      //                           chatType: extra?['chatType'] ?? ChatType.group,
-      //                           name: extra?['name'],
-      //                           phoneNumber: extra?['phoneNumber'],
-      //                           about: extra?['about'],
-      //                           language: extra?['language'],
-      //                           mediaCount: extra?['mediaCount'],
-      //                           isMuted: extra?['isMuted'],
-      //                           members: extra?['members'],
-      //                         ),
-      //                       );
-      //                     },
-      //                   ),
-      //                   GoRoute(
-      //                     name: AiSummaryScreen.routeName,
-      //                     path: AiSummaryScreen.routeName,
-      //                     pageBuilder: (_, GoRouterState state) {
-      //                       return getCustomTransitionPage(
-      //                         state: state,
-      //                         child: const AiSummaryScreen(),
-      //                       );
-      //                     },
-      //                   )
-      //                 ]),
-      //           ]),
-      //       GoRoute(
-      //         name: GroupsScreen.routeName,
-      //         path: "/${GroupsScreen.routeName}",
-      //         pageBuilder: (_, GoRouterState state) {
-      //           return getCustomTransitionPage(
-      //             state: state,
-      //             child: const GroupsScreen(),
-      //           );
-      //         },
-      //       ),
-      //       GoRoute(
-      //         name: NotificationScreen.routeName,
-      //         path: "/${NotificationScreen.routeName}",
-      //         pageBuilder: (_, GoRouterState state) {
-      //           return getCustomTransitionPage(
-      //             state: state,
-      //             child: const NotificationScreen(),
-      //           );
-      //         },
-      //       ),
-      //       GoRoute(
-      //           name: SettingsScreen.routeName,
-      //           path: "/${SettingsScreen.routeName}",
-      //           pageBuilder: (_, GoRouterState state) {
-      //             return getCustomTransitionPage(
-      //               state: state,
-      //               child: BlocProvider<SettingsCubit>(
-      //                   create: (v) => sl<SettingsCubit>(),
-      //                   child: const SettingsScreen()),
-      //             );
-      //           },
-      //           routes: [
-      //             GoRoute(
-      //               name: ProfileScreen.routeName,
-      //               path: ProfileScreen.routeName,
-      //               pageBuilder: (_, GoRouterState state) {
-      //                 return getCustomTransitionPage(
-      //                   state: state,
-      //                   child: const ProfileScreen(),
-      //                 );
-      //               },
-      //             ),
-      //           ]),
-      //       GoRoute(
-      //         name: CreateChatScreen.routeName,
-      //         path: "/${CreateChatScreen.routeName}",
-      //         pageBuilder: (_, GoRouterState state) {
-      //           return getCustomTransitionPage(
-      //             state: state,
-      //             child: const CreateChatScreen(),
-      //           );
-      //         },
-      //       ),
-      //       GoRoute(
-      //         name: CallsScreen.routeName,
-      //         path: "/${CallsScreen.routeName}",
-      //         pageBuilder: (_, GoRouterState state) {
-      //           return getCustomTransitionPage(
-      //             state: state,
-      //             child: const CallsScreen(),
-      //           );
-      //         },
-      //       ),
-      //     ]),
+      ShellRoute(
+          builder: (context, state, child) {
+            return MainLayoutWidget(
+              child: child,
+              currentPath: state.fullPath,
+            );
+          },
+          routes: [
+            GoRoute(
+                name: HomePage.routeName,
+                path: "/${HomePage.routeName}",
+                pageBuilder: (_, GoRouterState state) {
+                  return getCustomTransitionPage(
+                    state: state,
+                    child: const HomePage(),
+                  );
+                },
+                routes: []),
+          ]),
     ],
   );
 
