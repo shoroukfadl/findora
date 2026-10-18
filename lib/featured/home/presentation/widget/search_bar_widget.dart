@@ -1,40 +1,40 @@
-import 'package:findora/Core/Language/app_styles.dart';
-import 'package:findora/Utilities/constants/constants.dart';
 import 'package:findora/core/language/app_strings.dart';
 import 'package:findora/core/language/locales.dart';
-import 'package:findora/utilities/extentions/extensions.dart';
+import 'package:findora/shared/customWidgets/custom_text_field.dart';
+import 'package:findora/utilities/uiHelper/findora.dart';
 import 'package:flutter/material.dart';
 
-class SearchBarWidget extends StatelessWidget {
-  const SearchBarWidget({super.key});
+class SearchBarWidget extends StatefulWidget {
+  final TextEditingController? controller;
+  final ValueChanged<String>? onChanged;
+
+  const SearchBarWidget({super.key, this.controller, this.onChanged});
+
+  @override
+  State<SearchBarWidget> createState() => _SearchBarWidgetState();
+}
+
+class _SearchBarWidgetState extends State<SearchBarWidget> {
+  TextEditingController? _ownController;
+
+  TextEditingController get _controller =>
+      widget.controller ?? (_ownController ??= TextEditingController());
+
+  @override
+  void dispose() {
+    _ownController?.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
     final t = context.t;
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-      decoration: BoxDecoration(
-        color: colors.card,
-        borderRadius: BorderRadius.circular(fieldsRadius),
-        border: Border.all(color: colors.border),
-      ),
-      child: Row(
-        children: [
-          Icon(
-            Icons.search,
-            color: colors.text3,
-            size: 20,
-          ),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Text(
-              t.homeSearchHint,
-              style: AppTextStyles.b14(color: colors.text3),
-            ),
-          ),
-        ],
-      ),
+    return CustomTextField(
+      controller: _controller,
+      hint: t.homeSearchHint,
+      prefixIcon: Findora.search,
+      keyboardType: TextInputType.text,
+      onChanged: widget.onChanged,
     );
   }
 }

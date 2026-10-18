@@ -1,33 +1,53 @@
+import 'dart:math' as math;
+
 import 'package:findora/utilities/extentions/extensions.dart';
 import 'package:findora/utilities/uiHelper/findora.dart';
 import 'package:flutter/material.dart';
 
 class NavFab extends StatelessWidget {
-  const NavFab();
+  const NavFab({super.key, this.onTap, this.icon = Findora.add});
+
+  final VoidCallback? onTap;
+  final IconData icon;
 
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
+
     return GestureDetector(
-      onTap: () {},
-      child: Container(
-        width: 56,
-        height: 56,
-        decoration: BoxDecoration(
-          color: colors.secondary,
-          shape: BoxShape.circle,
-          boxShadow: [
-            BoxShadow(
-              color: colors.onSecondary.withValues(alpha: 0.3),
-              blurRadius: 8,
-              offset: const Offset(0, 4),
+      onTap: onTap,
+      behavior: HitTestBehavior.opaque,
+      child: SizedBox(
+        width: 72,
+        height: 72,
+        child: Center(
+          child: Transform.rotate(
+            angle: math.pi / 4,
+            child: Container(
+              width: 52,
+              height: 52,
+              decoration: BoxDecoration(
+                color: colors.secondary,
+                borderRadius: BorderRadius.circular(8),
+                boxShadow: [
+                  BoxShadow(
+                    color: colors.secondary.withValues(alpha: 0.35),
+                    blurRadius: 20,
+                    spreadRadius: 1,
+                    offset: const Offset(0, 8),
+                  ),
+                ],
+              ),
+              child: Transform.rotate(
+                angle: -math.pi / 4,
+                child: Icon(
+                  icon,
+                  color: colors.onSecondary,
+                  size: 28,
+                ),
+              ),
             ),
-          ],
-        ),
-        child: Icon(
-          Findora.add,
-          color: colors.onSecondary,
-          size: 28,
+          ),
         ),
       ),
     );

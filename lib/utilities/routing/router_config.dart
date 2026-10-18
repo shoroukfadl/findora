@@ -125,8 +125,8 @@ class GoRouterConfig {
       ShellRoute(
           builder: (context, state, child) {
             return MainLayoutWidget(
-              child: child,
               currentPath: state.fullPath,
+              child: child,
             );
           },
           routes: [

@@ -1,7 +1,6 @@
-import 'package:findora/utilities/extentions/extensions.dart';
 import 'package:flutter/material.dart';
 
-class ScreenLayoutWidget extends StatefulWidget {
+class ScreenLayoutWidget extends StatelessWidget {
   final List<Widget> children;
   final double verPadding;
 
@@ -11,24 +10,13 @@ class ScreenLayoutWidget extends StatefulWidget {
     required this.children,
   });
 
-  @override
-  State<ScreenLayoutWidget> createState() => _ScreenLayoutWidgetState();
-}
-
-class _ScreenLayoutWidgetState extends State<ScreenLayoutWidget> {
-  @override
   Widget build(BuildContext context) {
-    return Container(
-        padding: EdgeInsets.symmetric(
-          vertical: widget.verPadding,
+    return Padding(
+        padding: EdgeInsets.only(
+          top: verPadding,
         ),
-        color: context.colors.background,
-        child: RawScrollbar(
-          thumbVisibility: true,
-          trackVisibility: true,
-          child: CustomScrollView(
-            slivers: widget.children,
-          ),
+        child: CustomScrollView(
+          slivers: children,
         ));
   }
 }

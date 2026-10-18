@@ -1,5 +1,6 @@
 import 'package:findora/Core/Language/app_styles.dart';
 import 'package:findora/Utilities/constants/constants.dart';
+import 'package:findora/shared/media/rounded_image_widget.dart';
 import 'package:findora/utilities/extentions/extensions.dart';
 import 'package:flutter/material.dart';
 
@@ -28,26 +29,21 @@ class ReportCardWidget extends StatelessWidget {
 
     return Container(
       padding: const EdgeInsets.all(16),
-      margin: const EdgeInsets.only(bottom: 12),
+      margin: const EdgeInsets.only(
+          bottom: mobileVetPadding / 2,
+          right: mobileHozPadding,
+          left: mobileHozPadding),
       decoration: BoxDecoration(
         color: colors.card,
         borderRadius: BorderRadius.circular(cardRadius),
-        border: Border.all(color: colors.border),
       ),
       child: Row(
         children: [
-          Container(
-            width: 80,
-            height: 80,
-            decoration: BoxDecoration(
-              color: colors.surface,
-              borderRadius: BorderRadius.circular(fieldsRadius),
-            ),
-            child: Icon(
-              Icons.image,
-              color: colors.text3,
-              size: 32,
-            ),
+          RoundedImage(
+            width: 100,
+            height: 100,
+            radiusValue: fieldsRadius,
+            backgroundColor: colors.surface,
           ),
           const SizedBox(width: 16),
           Expanded(
@@ -63,7 +59,7 @@ class ReportCardWidget extends StatelessWidget {
                       ),
                       decoration: BoxDecoration(
                         color: statusBg,
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(pillsRadius),
                       ),
                       child: Text(
                         status,

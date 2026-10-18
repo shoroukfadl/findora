@@ -97,7 +97,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   ? Icon(widget.prefixIcon, color: colors.text3, size: 18)
                   : null,
               hoverColor: Colors.transparent,
-              contentPadding: EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+              contentPadding: EdgeInsets.symmetric(horizontal: 8, vertical: 12),
               suffixIcon: widget.suffixIcon ??
                   (widget.obscure
                       ? IconButton(

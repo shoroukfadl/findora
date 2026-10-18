@@ -21,15 +21,30 @@ class NavItem extends StatelessWidget {
       behavior: HitTestBehavior.opaque,
       onTap: onTap,
       child: Column(spacing: 4, children: [
-        Icon(item.icon,
-            size: 20, color: isSelected ? colors.accent : colors.text3),
+        AnimatedSwitcher(
+          duration: const Duration(milliseconds: 200),
+          transitionBuilder: (child, animation) {
+            return FadeTransition(
+              opacity: animation,
+              child: ScaleTransition(
+                scale: animation,
+                child: child,
+              ),
+            );
+          },
+          child: Icon(
+            isSelected ? item.selectedIcon : item.icon,
+            size: 24,
+            color: isSelected ? colors.accent : colors.text3,
+            key: ValueKey(isSelected ? item.selectedIcon : item.icon),
+          ),
+        ),
         Text(
           item.label,
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
-          style: isSelected
-              ? AppTextStyles.t14(color: colors.accent)
-              : AppTextStyles.sT14(color: colors.text3),
+          style: AppTextStyles.sT12(
+              color: isSelected ? colors.accent : colors.text3),
         ),
       ]),
     );

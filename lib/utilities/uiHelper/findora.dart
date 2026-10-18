@@ -13,6 +13,10 @@ class Findora {
 
   static const String _fontFamily = 'findora';
 
+  static const IconData findoraBold = IconData(0xf012, fontFamily: _fontFamily);
+  static const IconData mapBold = IconData(0xf011, fontFamily: _fontFamily);
+  static const IconData profileBold = IconData(0xf010, fontFamily: _fontFamily);
+  static const IconData chatsBold = IconData(0xf00f, fontFamily: _fontFamily);
   static const IconData settings = IconData(0xf00e, fontFamily: _fontFamily);
   static const IconData chats = IconData(0xf00d, fontFamily: _fontFamily);
   static const IconData map = IconData(0xf00b, fontFamily: _fontFamily);

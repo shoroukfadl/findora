@@ -2,6 +2,8 @@ enum ScreenRoutes {
   mainScreen,
   login,
   register,
+  home,
+
   forgotPassword,
   resetLink,
   code,
