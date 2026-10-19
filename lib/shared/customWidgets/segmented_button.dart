@@ -7,12 +7,10 @@ class SegmentOption<T> {
   const SegmentOption({
     required this.value,
     required this.label,
-    required this.icon,
   });
 
   final T value;
   final String label;
-  final IconData icon;
 }
 
 class AnimatedSegmentedButton<T> extends StatelessWidget {

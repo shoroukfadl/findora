@@ -129,4 +129,6 @@ extension AppStrings on AppLocalizations {
   String get statesOffline => tr('statesOffline');
   String get authHaveAccount => tr('authHaveAccount');
   String get fullName => tr('fullName');
+  String get settingsTheme => tr('settingsTheme');
+  String get edit => tr('edit');
 }

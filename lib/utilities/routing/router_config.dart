@@ -1,14 +1,19 @@
 import 'package:findora/featured/boarding/presentation/pages/boarding_screen.dart';
+import 'package:findora/featured/chats/presentation/pages/chats_page.dart';
 import 'package:findora/featured/home/presentation/pages/home_page.dart';
 import 'package:findora/featured/login/presentation/pages/login_page.dart';
 import 'package:findora/featured/profile/presentation/pages/profile_page.dart';
 import 'package:findora/featured/register/presentation/pages/register_page.dart';
+import 'package:findora/featured/reports/presentation/pages/reports_page.dart';
+import 'package:findora/featured/settings/presentation/cubit/settings_cubit.dart';
+import 'package:findora/featured/settings/presentation/pages/settings_page.dart';
 import 'package:findora/shared/mainLayout/main_layout_widget.dart';
 import 'package:findora/utilities/constants/enums.dart';
 import 'package:findora/utilities/dep/git_it.dart';
 import 'package:findora/utilities/routing/routing_stream.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:universal_html/html.dart' as html;
 
@@ -142,6 +147,16 @@ class GoRouterConfig {
                 },
                 routes: []),
             GoRoute(
+                name: ChatsPage.routeName,
+                path: "/${ChatsPage.routeName}",
+                pageBuilder: (_, GoRouterState state) {
+                  return getCustomTransitionPage(
+                    state: state,
+                    child: const ChatsPage(),
+                  );
+                },
+                routes: []),
+            GoRoute(
                 name: ProfilePage.routeName,
                 path: "/${ProfilePage.routeName}",
                 pageBuilder: (_, GoRouterState state) {
@@ -150,7 +165,30 @@ class GoRouterConfig {
                     child: const ProfilePage(),
                   );
                 },
-                routes: []),
+                routes: [
+                  GoRoute(
+                      name: ReportsPage.routeName,
+                      path: ReportsPage.routeName,
+                      pageBuilder: (_, GoRouterState state) {
+                        return getCustomTransitionPage(
+                          state: state,
+                          child: const ReportsPage(),
+                        );
+                      },
+                      routes: []),
+                  GoRoute(
+                      name: SettingsPage.routeName,
+                      path: SettingsPage.routeName,
+                      pageBuilder: (_, GoRouterState state) {
+                        return getCustomTransitionPage(
+                          state: state,
+                          child: BlocProvider<SettingsCubit>(
+                              create: (_) => sl<SettingsCubit>(),
+                              child: const SettingsPage()),
+                        );
+                      },
+                      routes: []),
+                ]),
           ]),
     ],
   );

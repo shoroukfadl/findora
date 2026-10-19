@@ -2,11 +2,16 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:findora/core/language/locale_cubit.dart';
 import 'package:findora/core/localStorage/hive_manager.dart';
+import 'package:findora/featured/settings/data/dataSource/remote/settings_remote_data_source.dart';
+import 'package:findora/featured/settings/data/dataSource/remote/settings_remote_data_source_impl.dart';
+import 'package:findora/featured/settings/data/repository/settings_repo_imp.dart';
+import 'package:findora/featured/settings/domain/repository/settings_repo.dart';
+import 'package:findora/featured/settings/domain/usecase/settings_usecase.dart';
+import 'package:findora/featured/settings/presentation/cubit/settings_cubit.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hive_flutter/adapters.dart';
-
 
 final sl = GetIt.instance;
 
@@ -85,22 +90,22 @@ class GitIt {
   }
 
   static void _initSettings() {
-    // sl.registerFactory(() => SettingsCubit(
-    //       logoutUsecase: sl(),
-    //     ));
-    // sl.registerLazySingleton(() => LogoutUsecase(repository: sl()));
-    // sl.registerLazySingleton<SettingsRepository>(
-    //   () => SettingsRepositoryImpl(
-    //     remoteDataSource: sl(),
-    //   ),
-    // );
-    //
-    // //! Data Sources
-    // sl.registerLazySingleton<SettingsRemoteDataSource>(
-    //   () => SettingsRemoteDataSourceImpl(
-    //     sl(),
-    //     sl(),
-    //   ),
-    // );
+    sl.registerFactory(() => SettingsCubit(
+          logoutUsecase: sl(),
+        ));
+    sl.registerLazySingleton(() => LogoutUsecase(repository: sl()));
+    sl.registerLazySingleton<SettingsRepository>(
+      () => SettingsRepositoryImpl(
+        remoteDataSource: sl(),
+      ),
+    );
+
+    //! Data Sources
+    sl.registerLazySingleton<SettingsRemoteDataSource>(
+      () => SettingsRemoteDataSourceImpl(
+        sl(),
+        sl(),
+      ),
+    );
   }
 }

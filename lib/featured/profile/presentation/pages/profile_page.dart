@@ -3,6 +3,8 @@ import 'package:findora/core/language/app_strings.dart';
 import 'package:findora/core/language/locales.dart';
 import 'package:findora/featured/profile/presentation/widgets/profile_header.dart';
 import 'package:findora/featured/profile/presentation/widgets/profile_menu_item.dart';
+import 'package:findora/featured/reports/presentation/pages/reports_page.dart';
+import 'package:findora/featured/settings/presentation/pages/settings_page.dart';
 import 'package:findora/shared/helper/screen_spacer.dart';
 import 'package:findora/shared/mainLayout/screen_layout_widget.dart';
 import 'package:findora/utilities/constants/constants.dart';
@@ -10,6 +12,7 @@ import 'package:findora/utilities/constants/enums.dart';
 import 'package:findora/utilities/extentions/extensions.dart';
 import 'package:findora/utilities/uiHelper/findora.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ProfilePage extends StatefulWidget {
   static String routeName = ScreenRoutes.profile.name;
@@ -40,7 +43,9 @@ class _ProfilePageState extends State<ProfilePage> {
               ProfileMenuItem(
                 icon: Findora.report,
                 label: t.profileMyReports,
-                onTap: () {},
+                onTap: () {
+                  context.goNamed(ReportsPage.routeName);
+                },
               ),
               ProfileMenuItem(
                 icon: Findora.claims,
@@ -55,7 +60,9 @@ class _ProfilePageState extends State<ProfilePage> {
               ProfileMenuItem(
                 icon: Findora.settings,
                 label: t.profileSettings,
-                onTap: () {},
+                onTap: () {
+                  context.goNamed(SettingsPage.routeName);
+                },
               ),
               const SizedBox(height: 16),
               GestureDetector(

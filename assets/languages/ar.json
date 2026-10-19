@@ -119,5 +119,7 @@
   "statesErrorBody": "تعذّر تحميل البلاغات. حاول مرة أخرى.",
   "statesOffline": "أنت غير متصل. ستُرسل الرسائل لاحقًا.",
   "authHaveAccount": "هل لديك حساب ؟",
-  "fullName": "الاسم بالكامل"
+  "fullName": "الاسم بالكامل",
+  "edit": "تعديل",
+  "settingsTheme": "المظهر"
 }

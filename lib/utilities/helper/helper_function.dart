@@ -38,6 +38,7 @@ abstract class HelperFunctions {
     return showModalBottomSheet(
         context: context,
         isScrollControlled: true,
+        useRootNavigator: true,
         backgroundColor: Colors.transparent,
         builder: (context) => widget,
         useSafeArea: true);
@@ -60,8 +61,7 @@ abstract class HelperFunctions {
           : Colors.red,
       content: Text(
         message ?? "",
-        style: AppTextStyles.t16(
-          color: Colors.white),
+        style: AppTextStyles.t16(color: Colors.white),
       ),
     );
 

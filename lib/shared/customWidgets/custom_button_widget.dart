@@ -86,7 +86,7 @@ class CustomButtonWidget extends StatelessWidget {
             : child ??
                 Text(
                   title ?? "",
-                  style: AppTextStyles.t16(color: titleColor ?? colors.text1),
+                  style: AppTextStyles.t14(color: titleColor ?? colors.text1),
                 ),
       ),
     );

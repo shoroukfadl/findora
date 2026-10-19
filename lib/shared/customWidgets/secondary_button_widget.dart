@@ -25,7 +25,7 @@ class SecondaryButtonWidget extends StatelessWidget {
               width: width,
               onPressed: onTap,
               borderColor: colors.border,
-              btnColor: hover ? colors.card : colors.surface,
+              btnColor: colors.card,
               borderRadiusValue: cardRadius,
               titleColor: colors.text1,
             ));

@@ -1,5 +1,6 @@
 import 'package:findora/core/language/app_strings.dart';
 import 'package:findora/core/language/locales.dart';
+import 'package:findora/featured/chats/presentation/pages/chats_page.dart';
 import 'package:findora/featured/home/presentation/pages/home_page.dart';
 import 'package:findora/featured/profile/presentation/pages/profile_page.dart';
 import 'package:findora/shared/mainLayout/bottomNav/nav_item.dart';
@@ -34,7 +35,7 @@ class BottomNavWidget extends StatelessWidget {
           label: context.t.navChats,
           selectedIcon: Findora.chatsBold,
           icon: Findora.chats,
-          route: "",
+          route: ChatsPage.routeName,
         ),
         NavModel(
           label: context.t.navProfile,

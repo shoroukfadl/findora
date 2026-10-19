@@ -120,6 +120,8 @@
   "statesErrorBody": "We couldn't load reports. Try again.",
   "statesOffline": "You're offline. Messages will send later.",
   "authHaveAccount": "Already have an account?",
-  "fullName": "Full Name"
+  "fullName": "Full Name",
+  "edit": "Edit",
+  "settingsTheme": "Theme"
 
 }
