@@ -1,9 +1,8 @@
 import 'package:findora/featured/createReport/domain/entity/report_entity.dart';
+import 'package:findora/featured/createReport/presentation/pages/report_form_page1.dart';
+import 'package:findora/featured/createReport/presentation/pages/report_form_page2.dart';
 import 'package:findora/utilities/constants/enums.dart';
 import 'package:flutter/material.dart';
-
-import 'report_form_page1.dart';
-import 'report_form_page2.dart';
 
 class CreateReport extends StatefulWidget {
   static String routeName = ScreenRoutes.createReport.name;

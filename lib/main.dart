@@ -29,10 +29,10 @@ Future<void> main() async {
     AppBlocObserver observer = AppBlocObserver();
     Bloc.observer = observer;
     setPathUrlStrategy();
-    await Future.wait([
-      Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform),
-      GitIt.initGitIt()
-    ]);
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    await GitIt.initGitIt();
 
     FlutterError.onError = (FlutterErrorDetails details) {
       reportError(

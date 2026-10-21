@@ -9,4 +9,6 @@ class GlobalKeys {
   static final contactMe = GlobalKey();
   static final appbarKey = GlobalKey();
   static final scaffoldKey = GlobalKey<ScaffoldState>();
+  static final GlobalKey<NavigatorState> rootNavigatorKey =
+      GlobalKey<NavigatorState>();
 }

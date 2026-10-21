@@ -77,6 +77,14 @@ extension AppStrings on AppLocalizations {
 
   String get onboardingSlide1Body => tr('onboardingSlide1Body');
 
+  String get onboardingSlide2Title => tr('onboardingSlide2Title');
+
+  String get onboardingSlide2Body => tr('onboardingSlide2Body');
+
+  String get onboardingSlide3Title => tr('onboardingSlide3Title');
+
+  String get onboardingSlide3Body => tr('onboardingSlide3Body');
+
   String get homeNearbyReports => tr('homeNearbyReports');
 
   String homeWithinRadius(String city, int km) =>
@@ -267,4 +275,8 @@ extension AppStrings on AppLocalizations {
   String get settingsTheme => tr('settingsTheme');
 
   String get edit => tr('edit');
+
+  String get system => tr('system');
+  String get dark => tr('dark');
+  String get light => tr('light');
 }

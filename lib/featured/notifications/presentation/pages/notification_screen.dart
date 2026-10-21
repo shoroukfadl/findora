@@ -18,7 +18,8 @@ class NotificationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final t = context.t;
-    return ScreenLayoutWidget(
+    return SubLayoutWidget(
+        child: ScreenLayoutWidget(
       children: [
         SecondaryAppBar(
           title: t.settingsNotifications,
@@ -51,6 +52,6 @@ class NotificationPage extends StatelessWidget {
                 ),
             itemCount: 10),
       ],
-    );
+    ));
   }
 }

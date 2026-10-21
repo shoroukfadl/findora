@@ -7,12 +7,14 @@ class PrimaryButtonWidget extends StatelessWidget {
   final String title;
   final Function()? onTap;
   final double height;
+  final double? width;
   final bool loading;
 
   const PrimaryButtonWidget(
       {super.key,
       this.loading = false,
       this.height = 56,
+      this.width,
       required this.title,
       this.onTap});
 
@@ -25,6 +27,7 @@ class PrimaryButtonWidget extends StatelessWidget {
               title: title,
               onPressed: onTap,
               isLoading: loading,
+              width: width,
               btnColor: hover ? colors.accentSoft : colors.accent,
               titleColor: Colors.white,
             ));

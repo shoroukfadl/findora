@@ -24,7 +24,9 @@ enum ScreenRoutes {
   groups,
   profileSetup,
   calls,
-  profileChat
+  profileChat,
+  blockedUsers,
+  privacyPolicy
 }
 
 enum AppLanguage { en, ar }

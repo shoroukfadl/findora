@@ -37,6 +37,10 @@
   "authCreateAccount": "إنشاء حساب",
   "onboardingSlide1Title": "بلّغ في ثوانٍ",
   "onboardingSlide1Body": "أضف صورًا وموقعًا، وسيصل الإشعار للناس القريبين فورًا.",
+  "onboardingSlide2Title": "اعثر على ما يهمك",
+  "onboardingSlide2Body": "تصفح المفقودات القريبة أو أضف ما وجدته لمساعدة الآخرين.",
+  "onboardingSlide3Title": "تحدث بأمان",
+  "onboardingSlide3Body": "راسل العاثرين بأمان داخل التطبيق. بيانات التواصل تبقى خاصة.",
   "homeNearbyReports": "بلاغات قريبة",
   "homeWithinRadius": "{city} · في نطاق {km} كم",
   "homeSearchHint": "ابحث عن محفظة، مفاتيح، هاتف…",
@@ -128,5 +132,8 @@
   "authHaveAccount": "هل لديك حساب ؟",
   "fullName": "الاسم بالكامل",
   "edit": "تعديل",
-  "settingsTheme": "المظهر"
+  "settingsTheme": "المظهر",
+  "system": "النظام",
+  "dak": "مُظلم",
+  "light": "فاتح"
 }

@@ -18,7 +18,7 @@ class NotificationButton extends StatelessWidget {
       splashColor: Colors.transparent,
       highlightColor: Colors.transparent,
       onTap: () {
-        context.goNamed(NotificationPage.routeName);
+        context.pushNamed(NotificationPage.routeName);
       },
       child: CircleAvatar(
           radius: 22,

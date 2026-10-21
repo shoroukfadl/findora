@@ -1,6 +1,7 @@
 import 'package:findora/Core/Language/app_styles.dart';
 import 'package:findora/core/language/app_strings.dart';
 import 'package:findora/core/language/locales.dart';
+import 'package:findora/featured/chat/presentation/pages/chat_page.dart';
 import 'package:findora/featured/chats/presentation/widgets/chat_card_widget.dart';
 import 'package:findora/featured/chats/presentation/widgets/chat_filter_buttons.dart';
 import 'package:findora/shared/helper/screen_spacer.dart';
@@ -8,6 +9,7 @@ import 'package:findora/shared/mainLayout/screen_layout_widget.dart';
 import 'package:findora/utilities/constants/enums.dart';
 import 'package:findora/utilities/extentions/extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class ChatsPage extends StatefulWidget {
   static String routeName = ScreenRoutes.chats.name;
@@ -70,7 +72,17 @@ class _ChatsPageState extends State<ChatsPage> {
                 status: chat['status'] as String,
                 time: chat['time'] as String,
                 unreadCount: chat['unread'] as int?,
-                onTap: () {},
+                onTap: () {
+                  context.pushNamed(
+                    ChatPage.routeName,
+                    queryParameters: {
+                      'userName': chat['name'] as String,
+                      'userInitials': chat['initials'] as String,
+                      'itemDescription': chat['item'] as String,
+                      'status': chat['status'] as String,
+                    },
+                  );
+                },
               );
             },
             childCount: 3,

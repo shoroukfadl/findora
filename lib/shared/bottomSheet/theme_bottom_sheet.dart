@@ -26,8 +26,7 @@ class ThemeBottomSheet extends StatelessWidget {
             .map((e) => BlocBuilder<ThemeCubit, ThemeState>(
                   builder: (c, state) => OptionWidget(
                     selected: state.theme.name == e.name,
-                    title: e.name,
-                    description: "",
+                    title: t.tr(e.name),
                     onTap: () => context.read<ThemeCubit>().changeTheme(e),
                   ),
                 ))

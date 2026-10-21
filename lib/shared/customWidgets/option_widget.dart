@@ -7,14 +7,14 @@ import 'package:flutter/material.dart';
 class OptionWidget extends StatelessWidget {
   final bool selected;
   final String title;
-  final String description;
+  final String? description;
   final VoidCallback onTap;
 
   const OptionWidget(
       {super.key,
       required this.selected,
       required this.title,
-      required this.description,
+      this.description,
       required this.onTap});
 
   @override
@@ -33,7 +33,9 @@ class OptionWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(title, style: AppTextStyles.sT14(color: colors.text1)),
-              Text(description, style: AppTextStyles.b12(color: colors.text2)),
+              if (description != null)
+                Text(description!,
+                    style: AppTextStyles.b12(color: colors.text2)),
             ],
           ),
           const Spacer(),

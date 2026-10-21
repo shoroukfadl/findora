@@ -1,5 +1,7 @@
 import 'package:findora/core/language/app_strings.dart';
 import 'package:findora/core/language/locales.dart';
+import 'package:findora/featured/blockedUsers/presentation/pages/blocked_users_page.dart';
+import 'package:findora/featured/privacy/presentation/pages/privacy_policy_page.dart';
 import 'package:findora/featured/settings/presentation/widget/settings/settings_item.dart';
 import 'package:findora/shared/bottomSheet/language_bottom_sheet.dart';
 import 'package:findora/shared/bottomSheet/theme_bottom_sheet.dart';
@@ -7,6 +9,7 @@ import 'package:findora/shared/customWidgets/segmented_button.dart';
 import 'package:findora/utilities/extentions/extensions.dart';
 import 'package:findora/utilities/helper/helper_function.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SettingsCard extends StatelessWidget {
   const SettingsCard({super.key});
@@ -43,14 +46,18 @@ class SettingsCard extends StatelessWidget {
             value: 'blocked',
             label: tr.settingsBlockedUsers,
           ),
-          onTap: (_) {},
+          onTap: (_) {
+            context.goNamed(BlockedUsersPage.routeName);
+          },
         ),
         SettingsItem<String>.Arrow(
           item: SegmentOption(
             value: 'security',
             label: tr.settingsPrivacyPolicy,
           ),
-          onTap: (_) {},
+          onTap: (_) {
+            context.goNamed(PrivacyPolicyPage.routeName);
+          },
         ),
       ],
     );

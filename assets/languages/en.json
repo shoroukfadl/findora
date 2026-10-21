@@ -38,6 +38,10 @@
   "authCreateAccount": "Create account",
   "onboardingSlide1Title": "Report in seconds",
   "onboardingSlide1Body": "Add photos and a location. Nearby people are notified right away.",
+  "onboardingSlide2Title": "Find what matters",
+  "onboardingSlide2Body": "Browse lost items nearby or post what you found to help others.",
+  "onboardingSlide3Title": "Chat securely",
+  "onboardingSlide3Body": "Message finders safely within the app. Your contact info stays private.",
   "homeNearbyReports": "Nearby reports",
   "homeWithinRadius": "{city} · within {km} km",
   "homeSearchHint": "Search wallet, keys, phone…",
@@ -129,6 +133,9 @@
   "authHaveAccount": "Already have an account?",
   "fullName": "Full Name",
   "edit": "Edit",
-  "settingsTheme": "Theme"
+  "settingsTheme": "Theme",
+  "system": "System",
+  "dak": "Dark",
+  "light": "Light"
 
 }

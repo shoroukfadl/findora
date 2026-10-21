@@ -24,7 +24,7 @@ class ChatAvatar extends StatelessWidget {
       child: Center(
         child: Text(
           initials,
-          style: AppTextStyles.b16(color: colors.secondarySoft),
+          style: AppTextStyles.sT14(color: colors.secondarySoft),
         ),
       ),
     );
