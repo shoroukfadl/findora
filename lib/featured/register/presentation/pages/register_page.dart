@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
   static String routeName = ScreenRoutes.register.name;
+
   const RegisterPage({super.key});
 
   @override

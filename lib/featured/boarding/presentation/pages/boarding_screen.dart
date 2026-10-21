@@ -13,6 +13,7 @@ import 'package:go_router/go_router.dart';
 
 class BoardingPage extends StatelessWidget {
   static String routeName = '/';
+
   const BoardingPage({super.key});
 
   @override

@@ -35,8 +35,7 @@ class SettingsCard extends StatelessWidget {
             label: tr.settingsTheme,
           ),
           onTap: (_) {
-            HelperFunctions.showCustomBottomSheet(
-                context, ThemeBottomSheet());
+            HelperFunctions.showCustomBottomSheet(context, ThemeBottomSheet());
           },
         ),
         SettingsItem<String>.Arrow(

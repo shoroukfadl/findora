@@ -9,6 +9,7 @@ class SettingsRepositoryImpl implements SettingsRepository {
   SettingsRepositoryImpl({
     required this.remoteDataSource,
   });
+
   Future<Either<RequestFailure, void>> logout() async {
     return remoteDataSource.logout();
   }

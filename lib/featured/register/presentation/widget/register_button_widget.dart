@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 class RegisterButton extends StatelessWidget {
   final Function() onPress;
+
   const RegisterButton({super.key, required this.onPress});
 
   @override

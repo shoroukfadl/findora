@@ -5,6 +5,7 @@ class IconWithBackground extends StatelessWidget {
   final Color background, iconColor;
   final IconData icon;
   final double size;
+
   const IconWithBackground(
       {super.key,
       required this.background,

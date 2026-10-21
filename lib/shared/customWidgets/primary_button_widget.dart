@@ -8,6 +8,7 @@ class PrimaryButtonWidget extends StatelessWidget {
   final Function()? onTap;
   final double height;
   final bool loading;
+
   const PrimaryButtonWidget(
       {super.key,
       this.loading = false,

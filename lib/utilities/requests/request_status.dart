@@ -1,10 +1,14 @@
 sealed class RequestStatus {
   const RequestStatus();
+
   String get message;
 
   bool get isInitial => this is RequestInitial;
+
   bool get isLoading => this is RequestLoading;
+
   bool get isSuccess => this is RequestSuccess;
+
   bool get isFailure => this is RequestFailure;
 
   R when<R>({

@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 
 class ReportsPage extends StatefulWidget {
   static String routeName = 'reports';
+
   const ReportsPage({super.key});
 
   @override
@@ -53,8 +54,8 @@ class _ReportsPageState extends State<ReportsPage>
           child: Padding(
             padding: EdgeInsets.symmetric(horizontal: mobileHozPadding),
             child: ListenableBuilder(
-              listenable:
-                  _tabController, // بيعيد البناء لما التاب يتغير (بالضغط أو بالسوايب)
+              listenable: _tabController,
+              // بيعيد البناء لما التاب يتغير (بالضغط أو بالسوايب)
               builder: (context, _) {
                 return SingleChildScrollView(
                   scrollDirection: Axis.horizontal,

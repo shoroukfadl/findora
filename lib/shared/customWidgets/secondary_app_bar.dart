@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 class SecondaryAppBar extends StatelessWidget {
   final String title;
   final Widget? tailWidget;
+
   const SecondaryAppBar({super.key, required this.title, this.tailWidget});
 
   @override

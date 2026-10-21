@@ -1,5 +1,5 @@
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:findora/core/localStorage/hive_manager.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 import 'boxes.dart';
 

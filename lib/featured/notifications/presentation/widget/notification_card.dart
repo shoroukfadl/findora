@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 class NotificationCard extends StatelessWidget {
   final bool isLast;
+
   const NotificationCard({super.key, this.isLast = false});
 
   @override

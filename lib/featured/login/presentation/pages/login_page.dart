@@ -13,6 +13,7 @@ import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
   static String routeName = ScreenRoutes.login.name;
+
   const LoginPage({super.key});
 
   @override

@@ -7,6 +7,7 @@ import 'report_form_page2.dart';
 
 class CreateReport extends StatefulWidget {
   static String routeName = ScreenRoutes.createReport.name;
+
   const CreateReport({super.key});
 
   @override
@@ -51,13 +52,17 @@ class _CreateReportState extends State<CreateReport> {
     return (_currentPage == 1)
         ? ReportFormPage1(
             isLost: _report.isLost,
-            onTypeChanged: (value) => setState(() => _report = _report.copyWith(isLost: value)),
+            onTypeChanged: (value) =>
+                setState(() => _report = _report.copyWith(isLost: value)),
             photos: _report.photos,
-            onPhotosChanged: (value) => setState(() => _report = _report.copyWith(photos: value)),
+            onPhotosChanged: (value) =>
+                setState(() => _report = _report.copyWith(photos: value)),
             title: _report.title,
-            onTitleChanged: (value) => setState(() => _report = _report.copyWith(title: value)),
+            onTitleChanged: (value) =>
+                setState(() => _report = _report.copyWith(title: value)),
             category: _report.category,
-            onCategoryChanged: (value) => setState(() => _report = _report.copyWith(category: value)),
+            onCategoryChanged: (value) =>
+                setState(() => _report = _report.copyWith(category: value)),
             description: _report.description,
             onDescriptionChanged: (value) =>
                 setState(() => _report = _report.copyWith(description: value)),
@@ -65,9 +70,11 @@ class _CreateReportState extends State<CreateReport> {
           )
         : ReportFormPage2(
             address: _report.address,
-            onAddressChanged: (value) => setState(() => _report = _report.copyWith(address: value)),
+            onAddressChanged: (value) =>
+                setState(() => _report = _report.copyWith(address: value)),
             dateLost: _report.dateLost,
-            onDateLostChanged: (value) => setState(() => _report = _report.copyWith(dateLost: value)),
+            onDateLostChanged: (value) =>
+                setState(() => _report = _report.copyWith(dateLost: value)),
             onConfirm: _confirmLocation,
           );
   }

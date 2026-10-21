@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 
 class ChatsPage extends StatefulWidget {
   static String routeName = ScreenRoutes.chats.name;
+
   const ChatsPage({super.key});
 
   @override

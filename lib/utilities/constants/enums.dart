@@ -12,12 +12,10 @@ enum ScreenRoutes {
   settings,
   notifications,
   createReport,
-
   forgotPassword,
   resetLink,
   code,
   verifyEmail,
-
   aiSummary,
   downloads,
   contacts,

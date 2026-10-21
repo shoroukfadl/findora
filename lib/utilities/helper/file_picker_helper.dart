@@ -60,8 +60,11 @@ class PickedFile {
   }
 
   bool get isImage => type == FileCategory.image;
+
   bool get isVideo => type == FileCategory.video;
+
   bool get isAudio => type == FileCategory.audio;
+
   bool get isDocument => type == FileCategory.document;
 }
 

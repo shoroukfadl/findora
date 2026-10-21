@@ -13,6 +13,7 @@ import 'package:go_router/go_router.dart';
 
 class BottomNavWidget extends StatelessWidget {
   final String path;
+
   const BottomNavWidget({super.key, required this.path});
 
   static const double _barHeight = 72;
@@ -44,6 +45,7 @@ class BottomNavWidget extends StatelessWidget {
           route: ProfilePage.routeName,
         ),
       ];
+
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;

@@ -52,6 +52,7 @@ class _PhoneFieldState extends State<PhoneField> {
             BorderRadius.circular(widget.borderRadius ?? fieldsRadius),
         borderSide: BorderSide(color: color ?? context.colors.accent),
       );
+
   PhoneNumberInputValidator _defaultValidator(BuildContext context) =>
       PhoneValidator.compose([
         if (widget.isRequired) PhoneValidator.required(context),

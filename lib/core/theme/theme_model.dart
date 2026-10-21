@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:findora/core/Theme/theme_colors.dart';
+import 'package:flutter/material.dart';
 
 class AppTheme {
   static final light = ThemeData(

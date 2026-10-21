@@ -10,6 +10,7 @@ import 'package:flutter/material.dart';
 
 class SavedPage extends StatefulWidget {
   static String routeName = ScreenRoutes.saved.name;
+
   const SavedPage({super.key});
 
   @override

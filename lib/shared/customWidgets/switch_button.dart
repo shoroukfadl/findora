@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 class SwitchButton extends StatelessWidget {
   final bool active;
   final Function(bool active) onTap;
+
   const SwitchButton({super.key, required this.onTap, this.active = false});
 
   @override

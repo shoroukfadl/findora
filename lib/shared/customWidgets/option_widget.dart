@@ -9,6 +9,7 @@ class OptionWidget extends StatelessWidget {
   final String title;
   final String description;
   final VoidCallback onTap;
+
   const OptionWidget(
       {super.key,
       required this.selected,

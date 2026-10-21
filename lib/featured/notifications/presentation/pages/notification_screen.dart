@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 
 class NotificationPage extends StatelessWidget {
   static String routeName = ScreenRoutes.notifications.name;
+
   const NotificationPage({super.key});
 
   @override

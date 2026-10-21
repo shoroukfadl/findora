@@ -8,6 +8,7 @@ class SecondaryButtonWidget extends StatelessWidget {
   final String title;
   final Function() onTap;
   final double height, width;
+
   const SecondaryButtonWidget(
       {super.key,
       this.height = 56,

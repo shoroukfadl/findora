@@ -14,6 +14,7 @@ import 'package:flutter/material.dart';
 
 class ReportDetailsPage extends StatefulWidget {
   static String routeName = ScreenRoutes.reportDetails.name;
+
   const ReportDetailsPage({super.key});
 
   @override

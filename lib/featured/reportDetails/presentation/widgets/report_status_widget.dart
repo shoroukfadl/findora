@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 class ReportStatusWidget extends StatelessWidget {
   final ReportStatus currentStatus;
+
   const ReportStatusWidget({super.key, required this.currentStatus});
 
   @override

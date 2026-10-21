@@ -17,6 +17,7 @@ import 'package:go_router/go_router.dart';
 
 class ProfilePage extends StatefulWidget {
   static String routeName = ScreenRoutes.profile.name;
+
   const ProfilePage({super.key});
 
   @override
