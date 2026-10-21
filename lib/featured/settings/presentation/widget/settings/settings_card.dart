@@ -1,8 +1,11 @@
 import 'package:findora/core/language/app_strings.dart';
 import 'package:findora/core/language/locales.dart';
 import 'package:findora/featured/settings/presentation/widget/settings/settings_item.dart';
+import 'package:findora/shared/bottomSheet/language_bottom_sheet.dart';
+import 'package:findora/shared/bottomSheet/theme_bottom_sheet.dart';
 import 'package:findora/shared/customWidgets/segmented_button.dart';
 import 'package:findora/utilities/extentions/extensions.dart';
+import 'package:findora/utilities/helper/helper_function.dart';
 import 'package:flutter/material.dart';
 
 class SettingsCard extends StatelessWidget {
@@ -21,14 +24,20 @@ class SettingsCard extends StatelessWidget {
             value: 'language',
             label: tr.settingsLanguage,
           ),
-          onTap: (_) {},
+          onTap: (_) {
+            HelperFunctions.showCustomBottomSheet(
+                context, LanguageBottomSheet());
+          },
         ),
         SettingsItem<String>.Arrow(
           item: SegmentOption(
             value: 'theme',
             label: tr.settingsTheme,
           ),
-          onTap: (_) {},
+          onTap: (_) {
+            HelperFunctions.showCustomBottomSheet(
+                context, ThemeBottomSheet());
+          },
         ),
         SettingsItem<String>.Arrow(
           item: SegmentOption(

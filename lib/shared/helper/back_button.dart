@@ -13,11 +13,11 @@ class CustomBackButton extends StatelessWidget {
         onTap: () => context.pop(),
         child: CircleAvatar(
           radius: 20,
-          backgroundColor: colors.secondarySoft,
+          backgroundColor: colors.border,
           child: Icon(
             Findora.arrowLeft,
             size: 18,
-            color: colors.secondary,
+            color: colors.text2,
           ),
         ));
   }

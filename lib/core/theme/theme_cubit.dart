@@ -1,8 +1,8 @@
 import 'package:collection/collection.dart';
-import 'package:findora/core/Theme/theme_state.dart';
 import 'package:findora/core/localStorage/boxes.dart';
 import 'package:findora/core/localStorage/hive_helper.dart';
 import 'package:findora/core/localStorage/hive_manager.dart';
+import 'package:findora/core/theme/theme_state.dart';
 import 'package:findora/utilities/dep/git_it.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

@@ -7,22 +7,25 @@ import 'package:go_router/go_router.dart';
 
 class SecondaryAppBar extends StatelessWidget {
   final String title;
-  const SecondaryAppBar({super.key, required this.title});
+  final Widget? tailWidget;
+  const SecondaryAppBar({super.key, required this.title, this.tailWidget});
 
   @override
   Widget build(BuildContext context) {
     final t = context.t;
     final colors = context.colors;
     return Row(
+      spacing: 8,
       children: [
-        IconButton(
-          icon: Icon(Findora.arrowLeft, size: 22, color: colors.text1),
-          onPressed: () => context.pop(),
+        InkWell(
+          child: Icon(Findora.arrowLeft, size: 20, color: colors.text1),
+          onTap: () => context.pop(),
         ),
         Text(
           title,
           style: AppTextStyles.h20(color: colors.text1),
-        ),
+        ).expand,
+        if (tailWidget != null) tailWidget!,
       ],
     );
   }

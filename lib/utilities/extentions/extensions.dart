@@ -1,9 +1,8 @@
 import 'package:findora/Utilities/Constants/constants.dart';
+import 'package:findora/core/theme/theme_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:responsive_framework/responsive_framework.dart';
-
-import '../../../Core/Theme/theme_colors.dart';
 
 extension SliverWidgetExtension on Widget {
   Widget asPaddedSliver() {

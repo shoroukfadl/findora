@@ -1,6 +1,6 @@
-import 'package:findora/Core/Language/app_styles.dart';
 import 'package:findora/Utilities/Constants/constants.dart';
 import 'package:findora/core/language/app_strings.dart';
+import 'package:findora/core/language/app_styles.dart';
 import 'package:findora/core/language/locales.dart';
 import 'package:findora/featured/boarding/presentation/widget/logo_widget.dart';
 import 'package:findora/featured/login/presentation/pages/login_page.dart';

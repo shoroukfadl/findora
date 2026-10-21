@@ -104,14 +104,12 @@ class CustomButtonWidget extends StatelessWidget {
 
 class CustomZaraButton extends StatefulWidget {
   final IconData icon;
-  final String title;
   final Function() onTap;
   final bool active;
 
   const CustomZaraButton(
       {super.key,
       required this.icon,
-      required this.title,
       required this.onTap,
       this.active = false});
 
@@ -147,10 +145,7 @@ class _CustomZaraButtonState extends State<CustomZaraButton> {
                 ? colors.accentSoft
                 : _hovered
                     ? colors.border.withValues(alpha: 0.3)
-                    : colors.background,
-            border: Border.all(
-              color: widget.active ? colors.accentSoft : colors.accent,
-            ),
+                    : colors.card,
           ),
           child: AnimatedRotation(
             duration: const Duration(milliseconds: 300),
@@ -170,7 +165,7 @@ class _CustomZaraButtonState extends State<CustomZaraButton> {
               child: Icon(
                 widget.icon,
                 size: 20,
-                color: widget.active ? Colors.white : colors.accent,
+                color: widget.active ? Colors.white : colors.text1,
               ),
             ),
           ),

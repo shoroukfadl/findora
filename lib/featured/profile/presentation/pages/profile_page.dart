@@ -4,6 +4,7 @@ import 'package:findora/core/language/locales.dart';
 import 'package:findora/featured/profile/presentation/widgets/profile_header.dart';
 import 'package:findora/featured/profile/presentation/widgets/profile_menu_item.dart';
 import 'package:findora/featured/reports/presentation/pages/reports_page.dart';
+import 'package:findora/featured/saved/presentation/pages/saved_page.dart';
 import 'package:findora/featured/settings/presentation/pages/settings_page.dart';
 import 'package:findora/shared/helper/screen_spacer.dart';
 import 'package:findora/shared/mainLayout/screen_layout_widget.dart';
@@ -55,7 +56,9 @@ class _ProfilePageState extends State<ProfilePage> {
               ProfileMenuItem(
                 icon: Findora.saved,
                 label: t.profileSaved,
-                onTap: () {},
+                onTap: () {
+                  context.goNamed(SavedPage.routeName);
+                },
               ),
               ProfileMenuItem(
                 icon: Findora.settings,

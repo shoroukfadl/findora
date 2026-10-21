@@ -1,13 +1,13 @@
 import 'dart:async';
 import 'dart:ui';
 
-import 'package:findora/Core/Theme/theme_colors.dart';
-import 'package:findora/core/Theme/theme_cubit.dart';
-import 'package:findora/core/Theme/theme_state.dart';
 import 'package:findora/core/error/errorWidget/custom_error_widget.dart';
 import 'package:findora/core/language/locale_cubit.dart';
 import 'package:findora/core/language/locales.dart';
 import 'package:findora/core/network/network.dart';
+import 'package:findora/core/theme/theme_colors.dart';
+import 'package:findora/core/theme/theme_cubit.dart';
+import 'package:findora/core/theme/theme_state.dart';
 import 'package:findora/firebase_options.dart';
 import 'package:findora/utilities/dep/git_it.dart';
 import 'package:findora/utilities/helper/observer.dart';

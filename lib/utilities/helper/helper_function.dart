@@ -33,14 +33,40 @@ abstract class HelperFunctions {
         pageBuilder: (_, __, ___) => contentWidget);
   }
 
-  static Future<void> showCustomBottomSheet(
-      BuildContext context, Widget widget) {
+  static Future<void> showCustomBottomSheet(BuildContext context, Widget widget,
+      {double height = 200}) {
     return showModalBottomSheet(
         context: context,
         isScrollControlled: true,
         useRootNavigator: true,
         backgroundColor: Colors.transparent,
-        builder: (context) => widget,
+        builder: (context) => Container(
+              padding: EdgeInsets.symmetric(
+                  horizontal: mobileHozPadding, vertical: mobileVetPadding),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(cardRadius),
+                  topRight: Radius.circular(cardRadius),
+                ),
+                color: context.colors.background,
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Card(
+                    color: context.colors.border,
+                    shape: RoundedRectangleBorder(
+                        borderRadius:
+                            BorderRadiusGeometry.circular(pillsRadius)),
+                    child: SizedBox(
+                      height: 4,
+                      width: 64,
+                    ),
+                  ),
+                  widget
+                ],
+              ),
+            ),
         useSafeArea: true);
   }
 

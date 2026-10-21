@@ -1,13 +1,14 @@
 import 'dart:math' as math;
 
+import 'package:findora/featured/createReport/presentation/create_report.dart';
 import 'package:findora/utilities/extentions/extensions.dart';
 import 'package:findora/utilities/uiHelper/findora.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class NavFab extends StatelessWidget {
-  const NavFab({super.key, this.onTap, this.icon = Findora.add});
+  const NavFab({super.key, this.icon = Findora.add});
 
-  final VoidCallback? onTap;
   final IconData icon;
 
   @override
@@ -15,7 +16,9 @@ class NavFab extends StatelessWidget {
     final colors = context.colors;
 
     return GestureDetector(
-      onTap: onTap,
+      onTap: () {
+        context.goNamed(CreateReport.routeName);
+      },
       behavior: HitTestBehavior.opaque,
       child: SizedBox(
         width: 72,

@@ -61,6 +61,13 @@ extension AppStrings on AppLocalizations {
   String get createDescription => tr('createDescription');
   String get createDescriptionHint => tr('createDescriptionHint');
   String get createContinueToLocation => tr('createContinueToLocation');
+  String get createWhereWasIt => tr('createWhereWasIt');
+  String get createMapPlaceholder => tr('createMapPlaceholder');
+  String get createStreetAddress => tr('createStreetAddress');
+  String get createStreetAddressHint => tr('createStreetAddressHint');
+  String get createDateLost => tr('createDateLost');
+  String get createDateHint => tr('createDateHint');
+  String get createConfirmLocation => tr('createConfirmLocation');
   String get categoriesWallet => tr('categoriesWallet');
   String get categoriesPhone => tr('categoriesPhone');
   String get categoriesKeys => tr('categoriesKeys');

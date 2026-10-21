@@ -3,18 +3,22 @@ enum ScreenRoutes {
   login,
   register,
   home,
+  reportDetails,
+  saved,
+  reports,
+  chats,
+  chat,
+  profile,
+  settings,
+  notifications,
+  createReport,
 
   forgotPassword,
   resetLink,
   code,
   verifyEmail,
-  chats,
-  newRoom,
-  chat,
-  profile,
-  settings,
+
   aiSummary,
-  notifications,
   downloads,
   contacts,
   newGroups,
@@ -40,12 +44,8 @@ enum FileTypeGroup {
   custom,
 }
 
-enum ThemeMode {
-  light,
-  dark,
-  system,
-}
-
 enum Collection {
   users,
 }
+
+enum ReportStatus { open, matched, returned }

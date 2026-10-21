@@ -1,10 +1,14 @@
 import 'package:findora/featured/boarding/presentation/pages/boarding_screen.dart';
 import 'package:findora/featured/chats/presentation/pages/chats_page.dart';
+import 'package:findora/featured/createReport/presentation/create_report.dart';
 import 'package:findora/featured/home/presentation/pages/home_page.dart';
 import 'package:findora/featured/login/presentation/pages/login_page.dart';
+import 'package:findora/featured/notifications/presentation/pages/notification_screen.dart';
 import 'package:findora/featured/profile/presentation/pages/profile_page.dart';
 import 'package:findora/featured/register/presentation/pages/register_page.dart';
+import 'package:findora/featured/reportDetails/presentation/pages/report_details_page.dart';
 import 'package:findora/featured/reports/presentation/pages/reports_page.dart';
+import 'package:findora/featured/saved/presentation/pages/saved_page.dart';
 import 'package:findora/featured/settings/presentation/cubit/settings_cubit.dart';
 import 'package:findora/featured/settings/presentation/pages/settings_page.dart';
 import 'package:findora/shared/mainLayout/main_layout_widget.dart';
@@ -145,7 +149,28 @@ class GoRouterConfig {
                     child: const HomePage(),
                   );
                 },
-                routes: []),
+                routes: [
+                  GoRoute(
+                      name: ReportDetailsPage.routeName,
+                      path: ReportDetailsPage.routeName,
+                      pageBuilder: (_, GoRouterState state) {
+                        return getCustomTransitionPage(
+                          state: state,
+                          child: const ReportDetailsPage(),
+                        );
+                      },
+                      routes: []),
+                  GoRoute(
+                      name: NotificationPage.routeName,
+                      path: NotificationPage.routeName,
+                      pageBuilder: (_, GoRouterState state) {
+                        return getCustomTransitionPage(
+                          state: state,
+                          child: const NotificationPage(),
+                        );
+                      },
+                      routes: []),
+                ]),
             GoRoute(
                 name: ChatsPage.routeName,
                 path: "/${ChatsPage.routeName}",
@@ -188,7 +213,27 @@ class GoRouterConfig {
                         );
                       },
                       routes: []),
+                  GoRoute(
+                      name: SavedPage.routeName,
+                      path: SavedPage.routeName,
+                      pageBuilder: (_, GoRouterState state) {
+                        return getCustomTransitionPage(
+                          state: state,
+                          child: const SavedPage(),
+                        );
+                      },
+                      routes: []),
                 ]),
+            GoRoute(
+                name: CreateReport.routeName,
+                path: "/${CreateReport.routeName}",
+                pageBuilder: (_, GoRouterState state) {
+                  return getCustomTransitionPage(
+                    state: state,
+                    child: const CreateReport(),
+                  );
+                },
+                routes: []),
           ]),
     ],
   );
