@@ -16,6 +16,7 @@ class ReportType extends StatelessWidget {
     final t = context.t;
     final colors = context.colors;
     return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
       decoration: BoxDecoration(
         color: colors.card,
         borderRadius: BorderRadius.circular(cardRadius),

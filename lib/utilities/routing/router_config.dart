@@ -129,6 +129,16 @@ class GoRouterConfig {
           },
           routes: []),
       GoRoute(
+          name: CreateReport.routeName,
+          path: "/${CreateReport.routeName}",
+          pageBuilder: (_, GoRouterState state) {
+            return getCustomTransitionPage(
+              state: state,
+              child: const CreateReport(),
+            );
+          },
+          routes: []),
+      GoRoute(
           parentNavigatorKey: GlobalKeys.rootNavigatorKey,
           name: PrivacyPolicyPage.routeName,
           path: "/" + PrivacyPolicyPage.routeName,
@@ -250,16 +260,6 @@ class GoRouterConfig {
                   return getCustomTransitionPage(
                     state: state,
                     child: const ProfilePage(),
-                  );
-                },
-                routes: []),
-            GoRoute(
-                name: CreateReport.routeName,
-                path: "/${CreateReport.routeName}",
-                pageBuilder: (_, GoRouterState state) {
-                  return getCustomTransitionPage(
-                    state: state,
-                    child: const CreateReport(),
                   );
                 },
                 routes: []),
