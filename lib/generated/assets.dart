@@ -13,7 +13,10 @@ class Assets {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
-  final AssetGenImage logo = const AssetGenImage('assets/images/logo.png');
+  final AssetGenImage logoProd =
+      const AssetGenImage('assets/images/prod/icon-pro.png');
+  final AssetGenImage logoDev =
+      const AssetGenImage('assets/images/dev/icon-dev.png');
 }
 
 class $AssetsLanguagesGen {

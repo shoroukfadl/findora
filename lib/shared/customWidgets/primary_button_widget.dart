@@ -21,15 +21,14 @@ class PrimaryButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
-    return HoverWidget(
-        builder: (hover) => CustomButtonWidget(
+    return CustomButtonWidget(
               height: height,
               title: title,
               onPressed: onTap,
               isLoading: loading,
               width: width,
-              btnColor: hover ? colors.accentSoft : colors.accent,
+              btnColor:  colors.accent,
               titleColor: Colors.white,
-            ));
+            );
   }
 }

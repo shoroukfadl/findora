@@ -1,3 +1,4 @@
+import 'package:findora/core/config/app_config.dart';
 import 'package:findora/generated/assets.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,9 @@ class LogoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Image.asset(
-      Assets.images.logo.path,
+      AppFlavor.isDev
+          ? Assets.images.logoDev.path
+          : Assets.images.logoProd.path,
       width: size,
       height: size,
       fit: BoxFit.fill,

@@ -104,7 +104,7 @@ class _EntryPointState extends State<EntryPoint> {
           isDark: isDark,
         ).copyWith(
           extensions: <ThemeExtension<dynamic>>[
-            isDark ? AppColors.dark : AppColors.light,
+            AppColors.resolve(isDark: isDark),
           ],
         );
 

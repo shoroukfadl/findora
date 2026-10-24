@@ -1,4 +1,5 @@
 import 'package:findora/Utilities/Constants/constants.dart';
+import 'package:findora/core/config/app_config.dart';
 import 'package:findora/core/language/app_strings.dart';
 import 'package:findora/core/language/app_styles.dart';
 import 'package:findora/core/language/locales.dart';
@@ -23,26 +24,29 @@ class _BoardingPageState extends State<BoardingPage> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
 
-  final List<Map<String, String>> _slides = [
-    {
-      'title': 'Report in seconds',
-      'image': 'assets/images/onboarding-1.png',
-      'description':
-          'Add photos and a location. Nearby people are notified right away.',
-    },
-    {
-      'title': 'Find what matters',
-      'image': 'assets/images/onboarding-2.png',
-      'description':
-          'Browse lost items nearby or post what you found to help others.',
-    },
-    {
-      'title': 'Chat securely',
-      'image': 'assets/images/onboarding-3.png',
-      'description':
-          'Message finders safely within the app. Your contact info stays private.',
-    },
-  ];
+  List<Map<String, String>> get _slides {
+    final flavorFolder = AppFlavor.isDev ? 'dev' : 'prod';
+    return [
+      {
+        'title': 'Report in seconds',
+        'image': 'assets/images/$flavorFolder/onboarding-1.png',
+        'description':
+            'Add photos and a location. Nearby people are notified right away.',
+      },
+      {
+        'title': 'Find what matters',
+        'image': 'assets/images/$flavorFolder/onboarding-2.png',
+        'description':
+            'Browse lost items nearby or post what you found to help others.',
+      },
+      {
+        'title': 'Chat securely',
+        'image': 'assets/images/$flavorFolder/onboarding-3.png',
+        'description':
+            'Message finders safely within the app. Your contact info stays private.',
+      },
+    ];
+  }
 
   @override
   void dispose() {

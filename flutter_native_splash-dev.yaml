@@ -1,0 +1,13 @@
+flutter_native_splash:
+  color: "#0B67B2"
+  color_dark: "#0B67B2"
+  image:      "assets/images/dev/splash-dev.png"
+  image_dark: "assets/images/dev/splash-dev.png"
+
+  #! ANDROID 12+ configuration:
+  android_12:
+    color: "#0B67B2"
+    color_dark: "#0B67B2"
+    image: "assets/images/dev/splash-dev.png"
+    image_dark: "assets/images/dev/splash-dev.png"
+
