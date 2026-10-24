@@ -2,7 +2,7 @@ import 'package:findora/Core/Language/app_styles.dart';
 import 'package:findora/Utilities/constants/constants.dart';
 import 'package:findora/core/language/app_strings.dart';
 import 'package:findora/core/language/locales.dart';
-import 'package:findora/shared/bottomSheet/filter_bottom_sheet.dart';
+import 'package:findora/shared/layouts/filter_bottom_sheet.dart';
 import 'package:findora/utilities/extentions/extensions.dart';
 import 'package:findora/utilities/helper/helper_function.dart';
 import 'package:flutter/material.dart';

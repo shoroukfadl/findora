@@ -1,4 +1,5 @@
 import 'package:findora/Core/Language/app_styles.dart';
+import 'package:findora/Utilities/Constants/constants.dart';
 import 'package:findora/core/language/app_strings.dart';
 import 'package:findora/core/language/locales.dart';
 import 'package:findora/utilities/extentions/extensions.dart';
@@ -13,28 +14,14 @@ class PrivacyInfo extends StatelessWidget {
     final colors = context.colors;
 
     return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: colors.accentSoft.withOpacity(0.1),
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: colors.accent.withOpacity(0.3)),
-      ),
-      child: Row(
-        children: [
-          Icon(
-            Icons.info_outline,
-            color: colors.accent,
-            size: 20,
-          ),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Text(
-              t.claimPrivacyInfo,
-              style: AppTextStyles.sT14(color: colors.text2),
-            ),
-          ),
-        ],
-      ),
-    );
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: colors.secondarySoft,
+          borderRadius: BorderRadius.circular(cardRadius),
+        ),
+        child: Text(
+          t.claimPrivacyInfo,
+          style: AppTextStyles.sT14(color: colors.text2),
+        ));
   }
 }

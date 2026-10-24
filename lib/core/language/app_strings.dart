@@ -279,4 +279,10 @@ extension AppStrings on AppLocalizations {
   String get system => tr('system');
   String get dark => tr('dark');
   String get light => tr('light');
+  String get reviewClaim => tr('reviewClaim');
+  String get yourQuestion => tr('yourQuestion');
+  String get theirAnswer => tr('theirAnswer');
+  String get rejectClaim => tr('rejectClaim');
+  String get approveOpenChat => tr('approve&openChat');
+
 }

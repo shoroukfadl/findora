@@ -21,7 +21,7 @@ enum ScreenRoutes {
   contacts,
   newGroups,
   createChat,
-  groups,
+  reviewClaim,
   profileSetup,
   calls,
   profileChat,

@@ -21,7 +21,8 @@ class _SavedPageState extends State<SavedPage> {
   @override
   Widget build(BuildContext context) {
     final t = context.t;
-    return ScreenLayoutWidget(
+    return SubLayoutWidget(
+        child: ScreenLayoutWidget(
       children: [
         SecondaryAppBar(title: t.profileSaved).asPaddedSliver(),
         const ScreenSpacer(),
@@ -44,7 +45,7 @@ class _SavedPageState extends State<SavedPage> {
           ],
         ),
       ],
-    );
+    ));
   }
 }
 

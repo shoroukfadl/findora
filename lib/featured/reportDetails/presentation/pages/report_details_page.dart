@@ -27,9 +27,9 @@ class _ReportDetailsPageState extends State<ReportDetailsPage> {
     final t = context.t;
     final colors = context.colors;
 
-    return ScreenLayoutWidget(
-      verPadding: 0,
-      children: [
+    return SubLayoutWidget(
+      child:
+          ScreenLayoutWidget(verPadding: 0, bottom: ActionsButton(), children: [
         ReportImage().asSliver(),
         const ScreenSpacer(),
         TitleWidget().asPaddedSliver(),
@@ -41,8 +41,7 @@ class _ReportDetailsPageState extends State<ReportDetailsPage> {
         const ScreenSpacer(),
         UserCardWidget(title: "Shorouk ").asSliver(),
         DetailsWarningCardWidget().asSliver(),
-        ActionsButton().asSliver()
-      ],
+      ]),
     );
   }
 }

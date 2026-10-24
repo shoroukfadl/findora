@@ -1,4 +1,5 @@
 import 'package:findora/Core/Language/app_styles.dart';
+import 'package:findora/Utilities/Constants/constants.dart';
 import 'package:findora/core/language/app_strings.dart';
 import 'package:findora/core/language/locales.dart';
 import 'package:findora/utilities/extentions/extensions.dart';
@@ -21,7 +22,7 @@ class ReporterQuestion extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          t.claimReporterQuestion,
+          t.reviewClaim,
           style: AppTextStyles.t16(color: colors.text1),
         ),
         const SizedBox(height: 12),
@@ -29,9 +30,8 @@ class ReporterQuestion extends StatelessWidget {
           width: double.infinity,
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
-            color: colors.card,
-            borderRadius: BorderRadius.circular(12),
-            border: Border.all(color: colors.border),
+            color: colors.border.withValues(alpha: 0.5),
+            borderRadius: BorderRadius.circular(cardRadius),
           ),
           child: Text(
             question,

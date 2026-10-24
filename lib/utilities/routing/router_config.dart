@@ -11,9 +11,11 @@ import 'package:findora/featured/profile/presentation/pages/profile_page.dart';
 import 'package:findora/featured/register/presentation/pages/register_page.dart';
 import 'package:findora/featured/reportDetails/presentation/pages/report_details_page.dart';
 import 'package:findora/featured/reports/presentation/pages/reports_page.dart';
+import 'package:findora/featured/reviewClaim/presentation/pages/review_claim_page.dart';
 import 'package:findora/featured/saved/presentation/pages/saved_page.dart';
 import 'package:findora/featured/settings/presentation/cubit/settings_cubit.dart';
 import 'package:findora/featured/settings/presentation/pages/settings_page.dart';
+import 'package:findora/featured/verifyOwnership/presentation/pages/verify_ownership_screen.dart';
 import 'package:findora/shared/mainLayout/main_layout_widget.dart';
 import 'package:findora/utilities/constants/enums.dart';
 import 'package:findora/utilities/constants/global_keys.dart';
@@ -135,6 +137,28 @@ class GoRouterConfig {
             return getCustomTransitionPage(
               state: state,
               child: const CreateReport(),
+            );
+          },
+          routes: []),
+      GoRoute(
+          parentNavigatorKey: GlobalKeys.rootNavigatorKey,
+          name: VerifyOwnershipScreen.routeName,
+          path: "/" + VerifyOwnershipScreen.routeName,
+          pageBuilder: (_, GoRouterState state) {
+            return getCustomTransitionPage(
+              state: state,
+              child: const VerifyOwnershipScreen(),
+            );
+          },
+          routes: []),
+      GoRoute(
+          parentNavigatorKey: GlobalKeys.rootNavigatorKey,
+          name: ReviewClaimPage.routeName,
+          path: "/" + ReviewClaimPage.routeName,
+          pageBuilder: (_, GoRouterState state) {
+            return getCustomTransitionPage(
+              state: state,
+              child: const ReviewClaimPage(),
             );
           },
           routes: []),

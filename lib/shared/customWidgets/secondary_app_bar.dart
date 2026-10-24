@@ -19,12 +19,12 @@ class SecondaryAppBar extends StatelessWidget {
       spacing: 8,
       children: [
         InkWell(
-          child: Icon(Findora.arrowLeft, size: 20, color: colors.text1),
+          child: Icon(Findora.arrowLeft, size: 18, color: colors.text1),
           onTap: () => context.pop(),
         ),
         Text(
           title,
-          style: AppTextStyles.h20(color: colors.text1),
+          style: AppTextStyles.h18(color: colors.text1),
         ).expand,
         if (tailWidget != null) tailWidget!,
       ],

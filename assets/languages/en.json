@@ -136,6 +136,11 @@
   "settingsTheme": "Theme",
   "system": "System",
   "dak": "Dark",
-  "light": "Light"
+  "light": "Light",
+  "reviewClaim": "Review claim",
+  "yourQuestion": "Your question",
+  "theirAnswer": "Their answer",
+  "rejectClaim": "Reject claim",
+  "approve&openChat": "Approve & open chat"
 
 }

@@ -1,6 +1,8 @@
 import 'package:findora/Core/Language/app_styles.dart';
+import 'package:findora/Utilities/Constants/constants.dart';
 import 'package:findora/core/language/app_strings.dart';
 import 'package:findora/core/language/locales.dart';
+import 'package:findora/shared/media/rounded_image_widget.dart';
 import 'package:findora/utilities/extentions/extensions.dart';
 import 'package:flutter/material.dart';
 
@@ -26,38 +28,16 @@ class ItemHeader extends StatelessWidget {
       decoration: BoxDecoration(
         color: colors.card,
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: colors.border),
       ),
       child: Row(
         children: [
           // Photo placeholder
-          Container(
-            width: 80,
-            height: 80,
-            decoration: BoxDecoration(
-              color: colors.surface,
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: imageUrl != null
-                ? ClipRRect(
-                    borderRadius: BorderRadius.circular(12),
-                    child: Image.network(
-                      imageUrl!,
-                      fit: BoxFit.cover,
-                      errorBuilder: (context, error, stackTrace) {
-                        return Icon(
-                          Icons.image_outlined,
-                          color: colors.text3,
-                          size: 32,
-                        );
-                      },
-                    ),
-                  )
-                : Icon(
-                    Icons.image_outlined,
-                    color: colors.text3,
-                    size: 32,
-                  ),
+          RoundedImage(
+            width: 64,
+            height: 64,
+            imagePath: imageUrl,
+            backgroundColor: colors.border,
+            radiusValue: cardRadius,
           ),
           const SizedBox(width: 16),
           // Title and status
@@ -76,12 +56,15 @@ class ItemHeader extends StatelessWidget {
                     vertical: 4,
                   ),
                   decoration: BoxDecoration(
-                    color: isLost ? colors.danger : colors.success,
-                    borderRadius: BorderRadius.circular(8),
+                    color: isLost
+                        ? colors.secondarySoft
+                        : colors.success.withValues(alpha: 0.3),
+                    borderRadius: BorderRadius.circular(pillsRadius),
                   ),
                   child: Text(
                     isLost ? t.commonLost : t.commonFound,
-                    style: AppTextStyles.sT12(color: colors.onAccent),
+                    style: AppTextStyles.sT12(
+                        color: isLost ? colors.secondary : colors.success),
                   ),
                 ),
               ],

@@ -1,6 +1,6 @@
-import 'package:findora/Core/Language/app_styles.dart';
 import 'package:findora/core/language/app_strings.dart';
 import 'package:findora/core/language/locales.dart';
+import 'package:findora/shared/customWidgets/primary_button_widget.dart';
 import 'package:findora/utilities/extentions/extensions.dart';
 import 'package:flutter/material.dart';
 
@@ -17,24 +17,11 @@ class SendClaimButton extends StatelessWidget {
     final t = context.t;
     final colors = context.colors;
 
-    return SizedBox(
+    return PrimaryButtonWidget(
       width: double.infinity,
       height: 56,
-      child: ElevatedButton(
-        onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: colors.accent,
-          foregroundColor: colors.onAccent,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          ),
-          elevation: 0,
-        ),
-        child: Text(
-          t.claimSend,
-          style: AppTextStyles.sT16(color: colors.onAccent),
-        ),
-      ),
+      onTap: onPressed,
+      title: t.claimSend,
     );
   }
 }

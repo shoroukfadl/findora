@@ -2,6 +2,7 @@ import 'package:findora/Core/Language/app_styles.dart';
 import 'package:findora/core/language/app_strings.dart';
 import 'package:findora/core/language/locales.dart';
 import 'package:findora/utilities/extentions/extensions.dart';
+import 'package:findora/utilities/uiHelper/findora.dart';
 import 'package:flutter/material.dart';
 
 class AddPhotoButton extends StatelessWidget {
@@ -25,16 +26,12 @@ class AddPhotoButton extends StatelessWidget {
         decoration: BoxDecoration(
           color: colors.card,
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(
-            color: colors.border,
-            style: BorderStyle.solid,
-          ),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
-              Icons.add_photo_alternate_outlined,
+              Findora.add,
               color: colors.accent,
               size: 20,
             ),
