@@ -44,7 +44,8 @@ class _ReportsPageState extends State<ReportsPage>
       'Closed', // t.reportsClosed
     ];
 
-    return ScreenLayoutWidget(
+    return SubLayoutWidget(
+        child: ScreenLayoutWidget(
       children: [
         SecondaryAppBar(title: t.profileMyReports).asPaddedSliver(),
         const ScreenSpacer(),
@@ -118,7 +119,7 @@ class _ReportsPageState extends State<ReportsPage>
           ),
         ),
       ],
-    );
+    ));
   }
 }
 

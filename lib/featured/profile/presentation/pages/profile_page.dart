@@ -46,7 +46,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 icon: Findora.report,
                 label: t.profileMyReports,
                 onTap: () {
-                  context.goNamed(ReportsPage.routeName);
+                  context.pushNamed(ReportsPage.routeName);
                 },
               ),
               ProfileMenuItem(
@@ -58,14 +58,14 @@ class _ProfilePageState extends State<ProfilePage> {
                 icon: Findora.saved,
                 label: t.profileSaved,
                 onTap: () {
-                  context.goNamed(SavedPage.routeName);
+                  context.pushNamed(SavedPage.routeName);
                 },
               ),
               ProfileMenuItem(
                 icon: Findora.settings,
                 label: t.profileSettings,
                 onTap: () {
-                  context.goNamed(SettingsPage.routeName);
+                  context.pushNamed(SettingsPage.routeName);
                 },
               ),
               const SizedBox(height: 16),

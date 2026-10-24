@@ -2,10 +2,12 @@ import 'package:findora/Core/Language/app_styles.dart';
 import 'package:findora/Utilities/constants/constants.dart';
 import 'package:findora/core/language/app_strings.dart';
 import 'package:findora/core/language/locales.dart';
+import 'package:findora/featured/editReport/presentation/pages/edit_report_page.dart';
 import 'package:findora/shared/customWidgets/secondary_button_widget.dart';
 import 'package:findora/shared/media/rounded_image_widget.dart';
 import 'package:findora/utilities/extentions/extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class EditableReportCardWidget extends StatelessWidget {
   final String title;
@@ -81,7 +83,9 @@ class EditableReportCardWidget extends StatelessWidget {
             width: 72,
             height: 32,
             title: context.t.edit,
-            onTap: () {},
+            onTap: () {
+              context.pushNamed(EditReportPage.routeName);
+            },
           )
         ],
       ),

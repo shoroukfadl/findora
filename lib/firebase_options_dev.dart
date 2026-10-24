@@ -8,7 +8,7 @@ import 'package:flutter/foundation.dart'
 ///
 /// Example:
 /// ```dart
-/// import 'firebase_options.dart';
+/// import 'firebase_options_dev.dart';
 /// // ...
 /// await Firebase.initializeApp(
 ///   options: DefaultFirebaseOptions.currentPlatform,
@@ -17,13 +17,19 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for macos - '
@@ -46,30 +52,11 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyB2ypXeKueVA5sMKHrNHgpCZTOKZmTLGYA',
-    appId: '1:682944082722:web:8af5228852308fad7a6b7b',
-    messagingSenderId: '682944082722',
-    projectId: 'findora-2027',
-    authDomain: 'findora-2027.firebaseapp.com',
-    storageBucket: 'findora-2027.firebasestorage.app',
-    measurementId: 'G-QTW7FXM8VW',
-  );
-
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyCAMK5-63NJHvvB15YxEcgADITVajgG5Js',
-    appId: '1:682944082722:android:69dcbe7a35b3f6f67a6b7b',
+    appId: '1:682944082722:android:f5c20e91f879823e7a6b7b',
     messagingSenderId: '682944082722',
     projectId: 'findora-2027',
     storageBucket: 'findora-2027.firebasestorage.app',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyChIoDarV5FTHmN0eEe06-7CHrLzo2iyFs',
-    appId: '1:682944082722:ios:9e0d540f9c34d1177a6b7b',
-    messagingSenderId: '682944082722',
-    projectId: 'findora-2027',
-    storageBucket: 'findora-2027.firebasestorage.app',
-    iosBundleId: 'com.findora',
   );
 }

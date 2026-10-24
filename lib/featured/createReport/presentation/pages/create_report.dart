@@ -45,7 +45,7 @@ class _CreateReportState extends State<CreateReport> {
   }
 
   void _confirmLocation() {
-    context.goNamed(SavedPage.routeName);
+    context.pushNamed(SavedPage.routeName);
   }
 
   @override

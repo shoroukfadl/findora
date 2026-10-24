@@ -141,6 +141,8 @@
   "yourQuestion": "Your question",
   "theirAnswer": "Their answer",
   "rejectClaim": "Reject claim",
-  "approve&openChat": "Approve & open chat"
+  "approve&openChat": "Approve & open chat",
+  "forgot_password_description": "Enter your email and we'll send you a link to reset your password.",
+  "forgot_password_send_link": "Send reset link"
 
 }

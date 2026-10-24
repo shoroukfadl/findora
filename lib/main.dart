@@ -8,7 +8,6 @@ import 'package:findora/core/network/network.dart';
 import 'package:findora/core/theme/theme_colors.dart';
 import 'package:findora/core/theme/theme_cubit.dart';
 import 'package:findora/core/theme/theme_state.dart';
-import 'package:findora/firebase_options.dart';
 import 'package:findora/utilities/dep/git_it.dart';
 import 'package:findora/utilities/helper/observer.dart';
 import 'package:findora/utilities/routing/router_config.dart';
@@ -22,16 +21,14 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 import 'package:url_strategy/url_strategy.dart';
 
-Future<void> main() async {
+Future<void> bootstrap(FirebaseOptions options) async {
   runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
     ConnectivityService.instance.initialize();
     AppBlocObserver observer = AppBlocObserver();
     Bloc.observer = observer;
     setPathUrlStrategy();
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
+    await Firebase.initializeApp(options: options);
     await GitIt.initGitIt();
 
     FlutterError.onError = (FlutterErrorDetails details) {

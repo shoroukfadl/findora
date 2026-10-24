@@ -3,6 +3,8 @@ import 'package:findora/featured/boarding/presentation/pages/boarding_screen.dar
 import 'package:findora/featured/chat/presentation/pages/chat_page.dart';
 import 'package:findora/featured/chats/presentation/pages/chats_page.dart';
 import 'package:findora/featured/createReport/presentation/pages/create_report.dart';
+import 'package:findora/featured/editReport/presentation/pages/edit_report_page.dart';
+import 'package:findora/featured/forgotPassword/presentation/pages/forgot_password_page.dart';
 import 'package:findora/featured/home/presentation/pages/home_page.dart';
 import 'package:findora/featured/login/presentation/pages/login_page.dart';
 import 'package:findora/featured/notifications/presentation/pages/notification_screen.dart';
@@ -159,6 +161,28 @@ class GoRouterConfig {
             return getCustomTransitionPage(
               state: state,
               child: const ReviewClaimPage(),
+            );
+          },
+          routes: []),
+      GoRoute(
+          parentNavigatorKey: GlobalKeys.rootNavigatorKey,
+          name: EditReportPage.routeName,
+          path: "/" + EditReportPage.routeName,
+          pageBuilder: (_, GoRouterState state) {
+            return getCustomTransitionPage(
+              state: state,
+              child: const EditReportPage(),
+            );
+          },
+          routes: []),
+      GoRoute(
+          parentNavigatorKey: GlobalKeys.rootNavigatorKey,
+          name: ForgotPasswordPage.routeName,
+          path: "/" + ForgotPasswordPage.routeName,
+          pageBuilder: (_, GoRouterState state) {
+            return getCustomTransitionPage(
+              state: state,
+              child: const ForgotPasswordPage(),
             );
           },
           routes: []),

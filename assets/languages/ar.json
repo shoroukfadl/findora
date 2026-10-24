@@ -135,5 +135,12 @@
   "settingsTheme": "المظهر",
   "system": "النظام",
   "dak": "مُظلم",
-  "light": "فاتح"
+  "light": "فاتح",
+  "reviewClaim": "مراجعة المطالبة",
+  "yourQuestion": "سؤالك",
+  "theirAnswer": "إجابتهم",
+  "rejectClaim": "رفض المطالبة",
+  "approve&openChat": "الموافقة وفتح المحادثة",
+  "forgot_password_description": "أدخل بريدك الإلكتروني وسنرسل لك رابطًا لإعادة تعيين كلمة المرور.",
+  "forgot_password_send_link": "إرسال رابط إعادة التعيين"
 }

@@ -26,7 +26,8 @@ enum ScreenRoutes {
   calls,
   profileChat,
   blockedUsers,
-  privacyPolicy
+  privacyPolicy,
+  editReport
 }
 
 enum AppLanguage { en, ar }
@@ -48,4 +49,4 @@ enum Collection {
   users,
 }
 
-enum ReportStatus { open, matched, returned }
+enum ReportStatus { open, matched, returned, closed }

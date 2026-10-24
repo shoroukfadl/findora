@@ -284,5 +284,7 @@ extension AppStrings on AppLocalizations {
   String get theirAnswer => tr('theirAnswer');
   String get rejectClaim => tr('rejectClaim');
   String get approveOpenChat => tr('approve&openChat');
+  String get forgotPasswordDescription => tr('forgot_password_description');
+  String get forgotPasswordSendLink => tr('forgot_password_send_link');
 
 }
