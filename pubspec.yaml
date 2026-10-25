@@ -5,7 +5,7 @@ publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: ">=3.4.1 <4.0.0"
+  sdk: ">=3.8.0 <4.0.0"
 
 dependencies:
   flutter:
@@ -37,9 +37,8 @@ dependencies:
   firebase_storage:
   firebase_messaging:
   google_sign_in: ^6.2.1
-  flutter_flavorizr:
   freezed_annotation: ^3.0.0
-  json_annotation: ^4.11.0
+  json_annotation: ^4.12.0
 
 
 

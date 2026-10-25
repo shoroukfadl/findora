@@ -1,7 +1,6 @@
 import 'package:findora/Core/Language/app_styles.dart';
 import 'package:findora/core/language/app_strings.dart';
 import 'package:findora/core/language/locales.dart';
-import 'package:findora/core/theme/theme_colors.dart';
 import 'package:findora/featured/createReport/presentation/widgets/category_selector.dart';
 import 'package:findora/featured/createReport/presentation/widgets/description_input_field.dart';
 import 'package:findora/featured/createReport/presentation/widgets/next_button.dart';
@@ -49,17 +48,14 @@ class ReportFormPage1 extends StatelessWidget {
 
     return ScreenLayoutWidget(
       children: [
-        StepIndecator(
-          current: 1,
-          total: 3,
-        ).asPaddedSliver(),
+        StepIndecator(current: 1, total: 3).asPaddedSliver(),
         const ScreenSpacer(),
         Text(
           t.createTitle,
           style: AppTextStyles.h20(color: colors.text1),
         ).asPaddedSliver(),
         const ScreenSpacer(),
-        ReportType(
+        ReportTypeWidget(
           isLost: isLost,
           onTypeChanged: onTypeChanged,
         ).asPaddedSliver(),
@@ -84,11 +80,8 @@ class ReportFormPage1 extends StatelessWidget {
           onChanged: onDescriptionChanged,
         ).asPaddedSliver(),
         const ScreenSpacer(),
-        NextButton(
-          onPressed: onNext,
-        ).asPaddedSliver(),
+        NextButton(onPressed: onNext).asPaddedSliver(),
       ],
     );
   }
-
 }

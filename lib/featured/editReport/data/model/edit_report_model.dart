@@ -1,39 +1,22 @@
 import 'package:findora/featured/editReport/domain/entity/edit_report_entity.dart';
 import 'package:findora/utilities/constants/enums.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-class EditReportModel {
-  final String id;
-  final String title;
-  final String description;
-  final ReportStatus status;
+part 'edit_report_model.freezed.dart';
+part 'edit_report_model.g.dart';
 
-  EditReportModel({
-    required this.id,
-    required this.title,
-    required this.description,
-    required this.status,
-  });
+@freezed
+abstract class EditReportModel with _$EditReportModel {
+  const EditReportModel._();
+  const factory EditReportModel({
+    required String id,
+    required String title,
+    required String description,
+    required ReportStatus status,
+  }) = _EditReportModel;
 
-  factory EditReportModel.fromJson(Map<String, dynamic> json) {
-    return EditReportModel(
-      id: json['id'] ?? '',
-      title: json['title'] ?? '',
-      description: json['description'] ?? '',
-      status: ReportStatus.values.firstWhere(
-        (e) => e.name == json['status'],
-        orElse: () => ReportStatus.open,
-      ),
-    );
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'title': title,
-      'description': description,
-      'status': status.name,
-    };
-  }
+  factory EditReportModel.fromJson(Map<String, dynamic> json) =>
+      _$EditReportModelFromJson(json);
 
   EditReportEntity toEntity() {
     return EditReportEntity(
@@ -50,20 +33,6 @@ class EditReportModel {
       title: entity.title,
       description: entity.description,
       status: entity.status,
-    );
-  }
-
-  EditReportModel copyWith({
-    String? id,
-    String? title,
-    String? description,
-    ReportStatus? status,
-  }) {
-    return EditReportModel(
-      id: id ?? this.id,
-      title: title ?? this.title,
-      description: description ?? this.description,
-      status: status ?? this.status,
     );
   }
 }

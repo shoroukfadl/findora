@@ -15,7 +15,7 @@ abstract class AppTextStyles extends ThemeExtension<AppTextStyles> {
       isArabic ? GoogleFonts.cairo() : GoogleFonts.sora();
 
   static TextStyle get bodyFamily =>
-      isArabic ? GoogleFonts.cairo() : GoogleFonts.dmSans();
+      isArabic ? GoogleFonts.elMessiri() : GoogleFonts.dmSans();
 
   /// -------------------------------- Basic Functions ----------------------------------------
   /// [color] is nullable on purpose: when null the text inherits the theme's

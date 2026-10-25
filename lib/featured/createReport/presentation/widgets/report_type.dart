@@ -5,11 +5,14 @@ import 'package:findora/core/language/locales.dart';
 import 'package:findora/utilities/extentions/extensions.dart';
 import 'package:flutter/material.dart';
 
-class ReportType extends StatelessWidget {
+class ReportTypeWidget extends StatelessWidget {
   final bool isLost;
   final Function(bool) onTypeChanged;
-  const ReportType(
-      {super.key, required this.onTypeChanged, this.isLost = true});
+  const ReportTypeWidget({
+    super.key,
+    required this.onTypeChanged,
+    this.isLost = true,
+  });
 
   @override
   Widget build(BuildContext context) {
