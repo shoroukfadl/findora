@@ -1,6 +1,6 @@
-import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:findora/Core/Language/app_styles.dart';
 import 'package:findora/Utilities/Constants/constants.dart';
+import 'package:findora/shared/layouts/error_toast_widget.dart';
 import 'package:findora/utilities/extentions/extensions.dart';
 import 'package:flutter/material.dart';
 
@@ -72,22 +72,16 @@ abstract class HelperFunctions {
 
   static void showCustomToast(
     BuildContext context, {
-    String? message,
-    ContentType? type,
+    String? title,
+    String? description,
   }) {
     final snackBar = SnackBar(
       behavior: SnackBarBehavior.floating,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(cardRadius),
-      ),
+      backgroundColor: Colors.transparent,
       elevation: 0,
-      showCloseIcon: true,
-      backgroundColor: (type ?? ContentType.success) == ContentType.success
-          ? Colors.green
-          : Colors.red,
-      content: Text(
-        message ?? "",
-        style: AppTextStyles.t16(color: Colors.white),
+      content: ErrorToastWidget(
+        title: title ?? "",
+        description: description ?? "",
       ),
     );
 

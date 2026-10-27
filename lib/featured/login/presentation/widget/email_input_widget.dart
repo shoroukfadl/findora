@@ -2,7 +2,6 @@ import 'package:findora/core/language/app_strings.dart';
 import 'package:findora/core/language/locales.dart';
 import 'package:findora/core/validators.dart';
 import 'package:findora/shared/customWidgets/custom_text_field.dart';
-import 'package:findora/utilities/extentions/extensions.dart';
 import 'package:flutter/material.dart';
 
 class EmailInputWidget extends StatelessWidget {
@@ -12,7 +11,6 @@ class EmailInputWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.colors;
     return CustomTextField(
       hint: context.t.authEmailHint,
       controller: emailController,

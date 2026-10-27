@@ -7,7 +7,7 @@ abstract class AppTextStyles extends ThemeExtension<AppTextStyles> {
   // English: Sora (headings/titles) + DM Sans (body)
   // Arabic : Cairo (everything) — Sora & DM Sans don't support Arabic.
 
-  /// Call this when the app locale changes, e.g. from your locale cubit:
+  /// Call this when the app locale changes, e.g. from your locale provider:
   /// AppTextStyles.isArabic = locale.languageCode == 'ar';
   static bool isArabic = false;
 

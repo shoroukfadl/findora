@@ -31,6 +31,12 @@ abstract class NotificationPrefsModel with _$NotificationPrefsModel {
         nearbyReports: e.nearbyReports,
       );
 
+  NotificationPrefs toEntity() => NotificationPrefs(
+    messages: messages,
+    claimUpdates: claimUpdates,
+    nearbyReports: nearbyReports,
+  );
+
   Map<String, dynamic> toMap() => {
     'messages': messages,
     'claimUpdates': claimUpdates,
@@ -53,7 +59,6 @@ abstract class UserModel with _$UserModel {
     required NotificationPrefsModel notificationPrefs,
   }) = _UserModel;
 
-  /// [isEmailVerified] comes from FirebaseAuth, not from Firestore.
   factory UserModel.fromMap(
     Map<String, dynamic> map, {
     required String uid,
@@ -65,6 +70,20 @@ abstract class UserModel with _$UserModel {
       email: map['email'] as String? ?? '',
       photoUrl: map['photoUrl'] as String?,
       isEmailVerified: isEmailVerified,
+      createdAt: dateFrom(map['createdAt']),
+      notificationPrefs: NotificationPrefsModel.fromMap(
+        map['notificationPrefs'] as Map<String, dynamic>?,
+      ),
+    );
+  }
+
+  factory UserModel.fromJson(Map<String, dynamic> map) {
+    return UserModel(
+      uid: map['uid'] as String? ?? '',
+      name: map['name'] as String? ?? '',
+      email: map['email'] as String? ?? '',
+      photoUrl: map['photoUrl'] as String?,
+      isEmailVerified: map['isEmailVerified'] as bool? ?? false,
       createdAt: dateFrom(map['createdAt']),
       notificationPrefs: NotificationPrefsModel.fromMap(
         map['notificationPrefs'] as Map<String, dynamic>?,
@@ -88,4 +107,12 @@ abstract class UserModel with _$UserModel {
     'notificationPrefs': notificationPrefs.toMap(),
     if (isCreate) 'createdAt': FieldValue.serverTimestamp(),
   };
+
+  UserEntity toEntity() => UserEntity(
+    photoUrl: photoUrl,
+    notificationPrefs: notificationPrefs.toEntity(),
+    uid: uid,
+    name: name,
+    email: email,
+  );
 }

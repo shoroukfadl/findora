@@ -10,14 +10,15 @@ import 'package:findora/shared/mainLayout/screen_layout_widget.dart';
 import 'package:findora/utilities/constants/enums.dart';
 import 'package:findora/utilities/extentions/extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class SettingsPage extends StatelessWidget {
+class SettingsPage extends ConsumerWidget {
   static String routeName = ScreenRoutes.settings.name;
 
   const SettingsPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final t = context.t;
     return ScreenLayoutWidget(children: [
       SecondaryAppBar(title: t.profileSettings).asPaddedSliver(),
